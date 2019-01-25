@@ -1,0 +1,2 @@
+<import src="./segmented-control.vue.wxml" />
+    <template is="34ae46c7" data="{{ ...$root['0'], $root }}"/>

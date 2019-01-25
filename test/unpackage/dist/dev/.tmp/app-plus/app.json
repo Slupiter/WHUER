@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/detail-news/detail-news",
+    "pages/list2detail-detail/list2detail-detail",
+    "pages/list2detail-list/list2detail-list",
+    "pages/ucenter/ucenter"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "新闻资讯",
+    "navigationBarBackgroundColor": "#2F85FC",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#2F85FC",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/list1/list1",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-active.png",
+        "text": "资讯"
+      },
+      {
+        "pagePath": "pages/list2detail-list/list2detail-list",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-active.png",
+        "text": "info"
+      },
+      {
+        "pagePath": "pages/ucenter/ucenter",
+        "iconPath": "static/center.png",
+        "selectedIconPath": "static/center-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "nvue": {
+    "pages": {
+      "pages/list1/list1.html": {
+        "window": {}
+      }
+    },
+    "entryPagePath": "pages/list1/list1"
+  },
+  "splashscreen": {
+    "autoclose": true
+  },
+  "appname": "test"
+}

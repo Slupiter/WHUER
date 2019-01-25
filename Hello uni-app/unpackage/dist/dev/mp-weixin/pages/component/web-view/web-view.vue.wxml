@@ -1,0 +1,1 @@
+<template name="73d37fd4"><view class="_view 73d37fd4"><web-view src="{{url}}" bindmessage="handleProxy" data-eventid="{{'73d37fd4-0'}}" data-comkey="{{$k}}" class="_web-view 73d37fd4"></web-view></view></template>

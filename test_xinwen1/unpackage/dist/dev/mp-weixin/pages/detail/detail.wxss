@@ -1,0 +1,5 @@
+
+.content{padding:4%;width:92%;-webkit-flex-wrap: wrap;-ms-flex-wrap: wrap;flex-wrap: wrap;}
+.title{line-height:2em; font-weight: 700;font-size:38rpx;}
+.image-view{margin: auto;width:96%;}
+
