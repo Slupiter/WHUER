@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/pwd/pwd"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24,8 +24,8 @@
 
 
 
-var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\service.js"));
-var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../components/m-input.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\components\\m-input.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\service.js"));
+var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../components/m-input.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\components\\m-input.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 
 {
   components: {
@@ -58,10 +58,10 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../components/m-
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=2b88c9b4&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue?vue&type=template&id=2b88c9b4& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=6e6a3743&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue?vue&type=template&id=6e6a3743& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -126,32 +126,32 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\main.js?{\"page\":\"pages%2Fpwd%2Fpwd\"}":
-/*!*************************************************************************************************!*\
-  !*** C:/Users/26231/Documents/HBuilderProjects/test_kantu/main.js?{"page":"pages%2Fpwd%2Fpwd"} ***!
-  \*************************************************************************************************/
+/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\main.js?{\"page\":\"pages%2Fpwd%2Fpwd\"}":
+/*!********************************************************************************************!*\
+  !*** C:/Users/26231/Documents/HBuilderProjects/kantu/main.js?{"page":"pages%2Fpwd%2Fpwd"} ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__(/*! uni-pages */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages.json");
+__webpack_require__(/*! uni-pages */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages.json");
 var _mpvuePageFactory = _interopRequireDefault(__webpack_require__(/*! mpvue-page-factory */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mpvue-page-factory/index.js"));
-var _pwd = _interopRequireDefault(__webpack_require__(/*! ./pages/pwd/pwd.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _pwd = _interopRequireDefault(__webpack_require__(/*! ./pages/pwd/pwd.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 Page((0, _mpvuePageFactory.default)(_pwd.default));
 
 /***/ }),
 
-/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue":
-/*!******************************************************************************!*\
-  !*** C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue ***!
-  \******************************************************************************/
+/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue":
+/*!*************************************************************************!*\
+  !*** C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pwd.vue?vue&type=template&id=2b88c9b4& */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=2b88c9b4&");
-/* harmony import */ var _pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pwd.vue?vue&type=script&lang=js& */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&");
+/* harmony import */ var _pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pwd.vue?vue&type=template&id=6e6a3743& */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=6e6a3743&");
+/* harmony import */ var _pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pwd.vue?vue&type=script&lang=js& */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -163,8 +163,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -174,44 +174,44 @@ var component = Object(_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue"
+component.options.__file = "C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************/
+/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!./pwd.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&");
+/* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!./pwd.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=script&lang=js&");
 /* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=2b88c9b4&":
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/26231/Documents/HBuilderProjects/test_kantu/pages/pwd/pwd.vue?vue&type=template&id=2b88c9b4& ***!
-  \*************************************************************************************************************/
+/***/ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=6e6a3743&":
+/*!********************************************************************************************************!*\
+  !*** C:/Users/26231/Documents/HBuilderProjects/kantu/pages/pwd/pwd.vue?vue&type=template&id=6e6a3743& ***!
+  \********************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!./pwd.vue?vue&type=template&id=2b88c9b4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=2b88c9b4&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!./pwd.vue?vue&type=template&id=6e6a3743& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\pages\\pwd\\pwd.vue?vue&type=template&id=6e6a3743&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_2b88c9b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_HBuilderX_1_5_2_20190121_full_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_pwd_vue_vue_type_template_id_6e6a3743___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ })
 
-},[["C:\\Users\\26231\\Documents\\HBuilderProjects\\test_kantu\\main.js?{\"page\":\"pages%2Fpwd%2Fpwd\"}","common/runtime","common/vendor"]]]);
+},[["C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\main.js?{\"page\":\"pages%2Fpwd%2Fpwd\"}","common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/pwd/pwd.js.map

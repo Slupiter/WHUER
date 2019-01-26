@@ -5,11 +5,19 @@
 		},
 		{
 			"path": "pages/detail-news/detail-news",
-			"style": {}
+			"style": {
+				"app-plus": {
+					"titleNView": {
+				"type": "transparent"
+				                 } 
+				           }
+			}
 		},
 		{
 			"path": "pages/list2detail-detail/list2detail-detail",
-			"style": {}
+			"style": {
+				
+			}
 		},
 		{
 			"path": "pages/list2detail-list/list2detail-list",

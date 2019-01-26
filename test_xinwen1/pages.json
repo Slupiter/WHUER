@@ -10,7 +10,9 @@
         },
         {
             "path" : "pages/detail/detail",
-            "style" : {}
+            "style" : {
+				
+			}
         }
     ],
     "globalStyle" : {

@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/tabbar/tabbar-2/detail-news/detail-news",
+    "pages/tabbar/tabbar-3/tabbar-3",
+    "pages/tabbar/tabbar-4/tabbar-4",
+    "pages/tabbar/tabbar-5/center/center",
+    "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
+    "pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video",
+    "pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa",
+    "pages/maincontent/bookexchange/bookexchange",
+    "pages/maincontent/foodsearch/foodsearch",
+    "pages/maincontent/schoolbus/schoolbus",
+    "pages/maincontent/cat/cat",
+    "pages/maincontent/weather/weather",
+    "pages/user/pwd/pwd",
+    "pages/user/login/login",
+    "pages/user/reg/reg",
+    "platforms/app-plus/about/about"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "WHUER",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#333",
+    "color": "#8F8F94",
+    "selectedColor": "#f33e54",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/tabbar-1/tabbar-1",
+        "iconPath": "static/img/tabbar/home.png",
+        "selectedIconPath": "static/img/tabbar/homeactive.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-2/list1/list1",
+        "iconPath": "static/img/tabbar/guanzhu.png",
+        "selectedIconPath": "static/img/tabbar/guanzhuactive.png",
+        "text": "咨讯"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+        "iconPath": "static/img/tabbar/add.png",
+        "selectedIconPath": "static/img/tabbar/addactive.png"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-4/tabbar-4",
+        "iconPath": "static/img/tabbar/news.png",
+        "selectedIconPath": "static/img/tabbar/newsactive.png",
+        "text": "通知"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-5/center/center",
+        "iconPath": "static/img/tabbar/me.png",
+        "selectedIconPath": "static/img/tabbar/meactive.png",
+        "text": "我"
+      }
+    ]
+  },
+  "nvue": {
+    "pages": {
+      "pages/tabbar/tabbar-2/list1/list1.html": {
+        "window": {}
+      }
+    }
+  },
+  "splashscreen": {
+    "autoclose": true
+  },
+  "appname": "WHUER"
+}

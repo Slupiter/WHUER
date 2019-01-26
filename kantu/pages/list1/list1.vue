@@ -125,7 +125,7 @@
 			},
 			goDetail(detail) {
 				uni.navigateTo({
-					url: '/pages/detail/detail?query=' + encodeURIComponent(JSON.stringify(detail))
+					url: '/pages/detail-news/detail-news?query=' + encodeURIComponent(JSON.stringify(detail))
 				});
 			},
 			dislike(tabIndex, newsIndex) {

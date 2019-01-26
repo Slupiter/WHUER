@@ -121,7 +121,7 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ "C:\\User
 _vue.default.config.productionTip = false;
 
 _vue.default.prototype.$store = _store.default;
-_vue.default.prototype.$store = _store.default;
+
 _App.default.mpType = 'app';
 
 var app = new _vue.default(_objectSpread({

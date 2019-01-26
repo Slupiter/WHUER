@@ -125,8 +125,8 @@
 			"text": "资讯"
 		},{
 				"pagePath": "pages/new/new",
-				"iconPath": "static/index-0.png",
-				"selectedIconPath": "static/index-1.png",
+				"iconPath": "static/pic-ori.png",
+				"selectedIconPath": "static/pic.png",
 				"text": "图片"
 			},
 			{

@@ -1,0 +1,143 @@
+{
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/tabbar/tabbar-1/tabbar-1",
+            "style" : {
+                "navigationBarTitleText" : "WHUER"
+            }
+        },
+        {
+            "path" : "pages/tabbar/tabbar-2/list1/list1",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar/tabbar-2/detail-news/detail-news",
+            "style" : {
+                "app-plus" : {
+                    "titleNView" : {
+                        "type" : "transparent"
+                    }
+                }
+            }
+        },
+        {
+            "path" : "pages/tabbar/tabbar-3/tabbar-3",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar/tabbar-4/tabbar-4",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar/tabbar-5/center/center",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video",
+            "style" : {}
+        },
+        {
+            "path" : "pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa",
+            "style" : {}
+        },
+        {
+            "path" : "pages/maincontent/bookexchange/bookexchange",
+            "style" : {}
+        },
+        {
+            "path" : "pages/maincontent/foodsearch/foodsearch",
+            "style" : {}
+        },
+        {
+            "path" : "pages/maincontent/schoolbus/schoolbus",
+            "style" : {}
+        },
+        {
+            "path" : "pages/maincontent/cat/cat",
+            "style" : {}
+        },
+        {
+            "path" : "pages/maincontent/weather/weather",
+            "style" : {}
+        },
+        {
+            "path" : "pages/user/pwd/pwd",
+            "style" : {}
+        },{
+            "path" : "pages/user/login/login",
+            "style" : {}
+        },{
+            "path" : "pages/user/reg/reg",
+            "style" : {}
+        },{
+			"path": "platforms/app-plus/about/about",
+			"style": {
+				"navigationBarTitleText": "关于"
+			}
+		},
+		{
+			"path": "platforms/h5/about/about",
+			"style": {
+				"navigationBarTitleText": "关于"
+			}
+		}
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "WHUER",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8"
+    },
+    "tabBar" : {
+        "borderStyle" : "black",
+        "backgroundColor" : "#333",
+        "color" : "#8F8F94",
+        "selectedColor" : "#f33e54",
+        "list" : [
+            {
+                "pagePath" : "pages/tabbar/tabbar-1/tabbar-1",
+                "iconPath" : "static/img/tabbar/home.png",
+                "selectedIconPath" : "static/img/tabbar/homeactive.png",
+                "text" : "首页"
+            },
+            {
+                "pagePath" : "pages/tabbar/tabbar-2/list1/list1",
+                "iconPath" : "static/img/tabbar/guanzhu.png",
+                "selectedIconPath" : "static/img/tabbar/guanzhuactive.png",
+                "text" : "咨讯"
+            },
+            //#ifdef MP-WEIXIN
+            {
+                "pagePath" : "pages/tabbar/tabbar-3/tabbar-3",
+                "iconPath" : "static/img/tabbar/add.png",
+                "selectedIconPath" : "static/img/tabbar/addactive.png",
+                "text" : "发布"
+            },
+            //#endif
+            //#ifndef MP-WEIXIN
+            {
+                "pagePath" : "pages/tabbar/tabbar-3/tabbar-3",
+                "iconPath" : "static/img/tabbar/add.png",
+                "selectedIconPath" : "static/img/tabbar/addactive.png"
+            },
+            //#endif
+            {
+                "pagePath" : "pages/tabbar/tabbar-4/tabbar-4",
+                "iconPath" : "static/img/tabbar/news.png",
+                "selectedIconPath" : "static/img/tabbar/newsactive.png",
+                "text" : "通知"
+            },
+            {
+                "pagePath" : "pages/tabbar/tabbar-5/center/center",
+                "iconPath" : "static/img/tabbar/me.png",
+                "selectedIconPath" : "static/img/tabbar/meactive.png",
+                "text" : "我"
+            }
+        ]
+    }
+}

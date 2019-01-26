@@ -1,5 +1,6 @@
 <template>
 	<view class="index">
+		
 		<swiper @change="swpierChange" :style="{height:screenHeight + 'px'}">
 			<swiper-item v-for="(value,index) in data" :key="index" @click="preImg(index)">
 				<image :src="value" mode="widthFix"></image>

@@ -1,25 +1,30 @@
 {
-	"name" : "test_kantu",
-	"appid" : "__UNI__3F43976",
-	"description": "图片App模版",
-	"transformPx": false,
-	"icons": [{
-		"sizes": "分辨率，192x192",
-		"src": "图片路径"
-	}],
-	"versionName": "1.0.0",
-	"versionCode": 100,
-	"app-plus": {},
-	// 5+App特有相关
-	"quickapp": {},
-	// 快应用特有相关
-	"mp-weixin": {},
-	"h5": {
-		"template": "template.h5.html",
-		"router": {
-			"mode": "hash",
-			"base": "/demo/picture/website/"
-		}
-	}
+    "name" : "test_kantu",
+    "appid" : "__UNI__3F43976",
+    "description" : "图片App模版",
+    "transformPx" : false,
+    "icons" : [
+        {
+            "sizes" : "分辨率，192x192",
+            "src" : "图片路径"
+        }
+    ],
+    "versionName" : "1.0.0",
+    "versionCode" : 100,
+    "app-plus" : {},
+    // 5+App特有相关
+    "quickapp" : {},
+    // 快应用特有相关
+    "mp-weixin" : {
+        "appid" : "wx69f1df7cfbad8e3f"
+    },
+    "h5" : {
+        "template" : "template.h5.html",
+        "router" : {
+            "mode" : "hash",
+            "base" : "/demo/picture/website/"
+        }
+    }
 }
 // 小程序特有相关
+
