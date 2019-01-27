@@ -37,7 +37,7 @@
 
 
 
-var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\kantu\\service.js"));
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
@@ -117,7 +117,7 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../components/m-
         account: this.account,
         password: this.password };
 
-      var validUser = _service.default.getUsers().some(function (user) {
+      var validUser = service.getUsers().some(function (user) {
         return data.account === user.account && data.password === user.password;
       });
       if (validUser) {

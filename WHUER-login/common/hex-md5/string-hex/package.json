@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      "string-hex@1.0.0",
+      "C:\\Users\\26231\\Documents\\HBuilderProjects\\npm"
+    ]
+  ],
+  "_from": "string-hex@1.0.0",
+  "_id": "string-hex@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-BVj+jcFkid8p2hDu96wRks4U3Dz/OfPnNR4vmABQqVIZgeSRAXYB5/zGrYT/8QhGhcEi/fMnjtLDz0rcJ5pEIQ==",
+  "_location": "/string-hex",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "string-hex@1.0.0",
+    "name": "string-hex",
+    "escapedName": "string-hex",
+    "rawSpec": "1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "1.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/string-hex/-/string-hex-1.0.0.tgz",
+  "_spec": "1.0.0",
+  "_where": "C:\\Users\\26231\\Documents\\HBuilderProjects\\npm",
+  "author": {
+    "name": "Olivier Wietrich"
+  },
+  "bugs": {
+    "url": "https://github.com/bredele/string-hex/issues"
+  },
+  "description": "Convert string to hex",
+  "devDependencies": {
+    "tape": "^4.9.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": ">= 8.9.4"
+  },
+  "homepage": "https://github.com/bredele/string-hex#readme",
+  "keywords": [
+    "string",
+    "hex",
+    "hexadecimal"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "string-hex",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bredele/string-hex.git"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "version": "1.0.0"
+}

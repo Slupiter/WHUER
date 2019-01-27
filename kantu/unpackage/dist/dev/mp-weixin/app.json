@@ -21,6 +21,7 @@
     "navigationBarBackgroundColor": "#FF80AB",
     "backgroundColor": "#EFEFEF"
   },
+  "usingComponents": {},
   "tabBar": {
     "color": "#444444",
     "selectedColor": "#FF80AB",

@@ -1,0 +1,2 @@
+<import src="./schoolbus.vue.wxml" />
+    <template is="c0dcc7da" data="{{ ...$root['0'], $root }}"/>
