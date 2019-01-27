@@ -1,2 +1,2 @@
 <import src="./bookexchange.vue.wxml" />
-    <template is="7fbf9ef9" data="{{ ...$root['0'], $root }}"/>
+    <template is="684237fc" data="{{ ...$root['0'], $root }}"/>

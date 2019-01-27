@@ -14,24 +14,20 @@
             <button type="primary" class="primary" @tap="bindLogin">登录</button>
         </view>
         <view class="action-row">
-            <navigator url="../reg/reg">注册账号</navigator>
-            <text>|</text>
+            
             <navigator url="../pwd/pwd">忘记密码</navigator>
         </view>
-        <view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
-            <view class="oauth-image" v-for="provider in providerList" :key="provider.value">
-                <image :src="provider.image" @tap="oauth(provider.value)"></image>
-            </view>
-        </view>
+        
     </view>
 </template>
 
 <script>
-    import service from '../../../common/service.js';
+   
     import {
         mapState,
         mapMutations
     } from 'vuex'
+	
     import mInput from '../../../components/m-input.vue'
 
     export default {
@@ -47,31 +43,12 @@
                 positionTop: 0
             }
         },
-        computed: mapState(['forcedLogin']),
+        computed: {
+			...mapState(['forcedLogin','token','username','data'])
+			},
         methods: {
-            ...mapMutations(['login','pass']),
-            initProvider() {
-                const filters = ['weixin', 'qq', 'sinaweibo'];
-                uni.getProvider({
-                    service: 'oauth',
-                    success: (res) => {
-                        if (res.provider && res.provider.length) {
-                            for (let i = 0; i < res.provider.length; i++) {
-                                if (~filters.indexOf(res.provider[i])) {
-                                    this.providerList.push({
-                                        value: res.provider[i],
-                                        image: '../../../static/img/' + res.provider[i] + '.png'
-                                    });
-                                }
-                            }
-                            this.hasProvider = true;
-                        }
-                    },
-                    fail: (err) => {
-                        console.error('获取服务供应商失败：' + JSON.stringify(err));
-                    }
-                });
-            },
+            ...mapMutations(['login','getuserinfo']),
+            
             initPosition() {
                 /**
                  * 使用 absolute 定位，并且设置 bottom 值进行定位。软键盘弹出时，底部会因为窗口变化而被顶上来。
@@ -84,216 +61,162 @@
                  * 客户端对账号信息进行一些必要的校验。
                  * 实际开发中，根据业务需要进行处理，这里仅做示例。
                  */
-                if (this.account.length < 5) {
+                if (this.account.length != 13) {
                     uni.showToast({
                         icon: 'none',
-                        title: '账号最短为 5 个字符'
+                        title: '请输入正确的学号'
                     });
                     return;
                 }
-                if (this.password.length < 6) {
-                    uni.showToast({
-                        icon: 'none',
-                        title: '密码最短为 6 个字符'
-                    });
-                    return;
-                }
+                
+                
                 /**
                  * 下面简单模拟下服务端的处理
                  * 检测用户账号密码是否在已注册的用户列表中
                  * 实际开发中，使用 uni.request 将账号信息发送至服务端，客户端在回调函数中获取结果信息。
                  */
-                const data = {
-                    account: this.account,
-                    password: this.password
-                };
-                const validUser = service.getUsers().some(function (user) {
-                    return data.account === user.account && data.password === user.password;
-                });
-                if (validUser) {
-                    this.toMain(this.account);
-                } else {
-                    uni.showToast({
-                        icon: 'none',
-                        title: '用户账号或密码不正确',
-                    });
-                }
-            },
-            oauth(value) {
-                uni.login({
-                    provider: value,
-                    success: (res) => {
-                        uni.getUserInfo({
-                            provider: value,
-                            success: (infoRes) => {
-                                /**
-                                 * 实际开发中，获取用户信息后，需要将信息上报至服务端。
-                                 * 服务端可以用 userInfo.openId 作为用户的唯一标识新增或绑定用户信息。
-                                 */
-								console.log(infoRes);
-                                this.toMain(infoRes.userInfo.nickName,infoRes.userInfo.avatarUrl);
-								
-                            }
-                        });
-                    },
-                    fail: (err) => {
-                        console.error('授权登录失败：' + JSON.stringify(err));
-                    }
-                });
-            },
-            toMain(userName,avatarUrl) {
-				console.log(userName+"-------"+avatarUrl);
-                this.login(userName);
-			    this.pass(avatarUrl);
-                /**
-                 * 强制登录时使用reLaunch方式跳转过来
-                 * 返回首页也使用reLaunch方式
-                 */
-                if (this.forcedLogin) {
-                    uni.reLaunch({
-                        url: '../center/center',
-                    });
-                } else {
-                    uni.navigateBack();
-                }
-
+               // const datas = {
+               //     username1: this.account,
+                  //  password1: this.password
+               // };
+				console.log('已输入'+this.account+this.password);
+				//与服务器进行验证
+				uni.request({
+					url: 'https://api.thinker.ink/v1/users/login/',
+					method: 'POST',
+					header:{
+						'content-type':'application/json'
+					},
+					data: {
+						username: this.account,
+						password: this.password
+					},
+					success: res => {
+						console.log('成功返回的信息-------------');
+						console.log(res.data.data);
+						this.login(res);
+						if(this.token) {
+							
+						    //getuserinfo();
+							console.log(this.token);
+							
+							this.getuserinfo();
+							uni.navigateBack();
+						}else{
+							console.log("login失败");
+						}
+                }})
+				//this.login(data);
+				//this.getuserinfo();
+				
             }
-        },
+			},                   
         onLoad() {
             this.initPosition();
-            this.initProvider();
+           
         }
     }
 </script>
 
 <style>
-	body,
-	page {
-	    min-height: 100%;
-	    display: flex;
-	}
-	
-	/* #ifdef MP-BAIDU */
-	page {
-	    width: 100%;
-	    height: 100%;
-	    display: block;
-	}
-	
-	swan-template {
-	    width: 100%;
-	    min-height: 100%;
-	    display: flex;
-	}
-	
-	/* #endif */
-	
-	.content {
-	    display: flex;
-	    flex: 1;
-	    flex-direction: column;
-	    background-color: #efeff4;
-	    padding: 20upx;
-	}
-	
-	.input-group {
-	    background-color: #ffffff;
-	    margin-top: 40upx;
-	    position: relative;
-	}
-	
-	.input-group::before {
-	    position: absolute;
-	    right: 0;
-	    top: 0;
-	    left: 0;
-	    height: 1upx;
-	    content: '';
-	    -webkit-transform: scaleY(.5);
-	    transform: scaleY(.5);
-	    background-color: #c8c7cc;
-	}
-	
-	.input-group::after {
-	    position: absolute;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    height: 1upx;
-	    content: '';
-	    -webkit-transform: scaleY(.5);
-	    transform: scaleY(.5);
-	    background-color: #c8c7cc;
-	}
-	
-	.input-row {
-	    display: flex;
-	    flex-direction: row;
-	    position: relative;
-	}
-	
-	.input-row .title {
-	    width: 20%;
-	    height: 50upx;
-	    min-height: 50upx;
-	    padding: 15upx 0;
-	    padding-left: 30upx;
-	    line-height: 50upx;
-	}
-	
-	.input-row.border::after {
-	    position: absolute;
-	    right: 0;
-	    bottom: 0;
-	    left: 15upx;
-	    height: 1upx;
-	    content: '';
-	    -webkit-transform: scaleY(.5);
-	    transform: scaleY(.5);
-	    background-color: #c8c7cc;
-	}
-	
-	.btn-row {
-	    margin-top: 50upx;
-	    padding: 20upx;
-	}
-	
-	button.primary {
-	    background-color: #0faeff;
-	}
-    .action-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .action-row navigator {
-        color: #007aff;
-        padding: 0 20upx;
-    }
-
-    .oauth-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .oauth-image {
-        width: 100upx;
-        height: 100upx;
-        border: 1upx solid #dddddd;
-        border-radius: 100upx;
-        margin: 0 40upx;
-        background-color: #ffffff;
-    }
-
-    .oauth-image image {
-        width: 60upx;
-        height: 60upx;
-        margin: 20upx;
-    }
+     /*每个页面公共css */
+   /* uni-app默认全局使用flex布局。因为flex布局有利于跨更多平台，尤其是采用原生渲染的平台。如不了解flex布局，请参考http://www.w3.org/TR/css3-flexbox/。如不使用flex布局，请删除或注释掉本行。*/
+   body,
+   page {
+       min-height: 100%;
+       display: flex;
+   }
+   
+   /* #ifdef MP-BAIDU */
+   page {
+       width: 100%;
+       height: 100%;
+       display: block;
+   }
+   
+   swan-template {
+       width: 100%;
+       min-height: 100%;
+       display: flex;
+   }
+   
+   /* #endif */
+   
+   .content {
+       display: flex;
+       flex: 1;
+       flex-direction: column;
+       background-color: #efeff4;
+       padding: 20upx;
+   }
+   
+   .input-group {
+       background-color: #ffffff;
+       margin-top: 40upx;
+       position: relative;
+   }
+   
+   .input-group::before {
+       position: absolute;
+       right: 0;
+       top: 0;
+       left: 0;
+       height: 1upx;
+       content: '';
+       -webkit-transform: scaleY(.5);
+       transform: scaleY(.5);
+       background-color: #c8c7cc;
+   }
+   
+   .input-group::after {
+       position: absolute;
+       right: 0;
+       bottom: 0;
+       left: 0;
+       height: 1upx;
+       content: '';
+       -webkit-transform: scaleY(.5);
+       transform: scaleY(.5);
+       background-color: #c8c7cc;
+   }
+   
+   .input-row {
+       display: flex;
+       flex-direction: row;
+       position: relative;
+   }
+   
+   .input-row .title {
+       width: 20%;
+       height: 50upx;
+       min-height: 50upx;
+       padding: 15upx 0;
+       padding-left: 30upx;
+       line-height: 50upx;
+   }
+   
+   .input-row.border::after {
+       position: absolute;
+       right: 0;
+       bottom: 0;
+       left: 15upx;
+       height: 1upx;
+       content: '';
+       -webkit-transform: scaleY(.5);
+       transform: scaleY(.5);
+       background-color: #c8c7cc;
+   }
+   
+   .btn-row {
+       margin-top: 50upx;
+       padding: 20upx;
+   }
+   
+   button.primary {
+       background-color: #0faeff;
+   }
+   .action-row {
+	   text-align: center;
+	   
+   }
 </style>

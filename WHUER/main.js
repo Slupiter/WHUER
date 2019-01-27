@@ -10,6 +10,7 @@ Vue.prototype.$store = store
 App.mpType = 'app'
 
 const app = new Vue({
+	store,
     ...App
 })
 app.$mount()

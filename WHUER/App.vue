@@ -24,7 +24,40 @@ export default {
 
 <style>
   
- /*每个页面公共css */
-    /* uni-app默认全局使用flex布局。因为flex布局有利于跨更多平台，尤其是采用原生渲染的平台。如不了解flex布局，请参考http://www.w3.org/TR/css3-flexbox/。如不使用flex布局，请删除或注释掉本行。*/
+
+    /* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
+    @import './common/uni.css';
     
+    /* 以下样式用于 hello uni-app 演示所需 */
+    page {
+    	background-color: #F4F5F6;
+    	height: 100%;
+    	font-size: 28upx;
+    	line-height: 1.8;
+    }
+    
+    .uni-header-logo {
+    	padding: 30upx;
+    	text-align: center;
+    	margin-top: 10upx;
+    }
+    
+    .uni-header-logo image {
+    	width: 140upx;
+    	height: 140upx;
+    }
+    
+    .uni-hello-text {
+    	color: #7A7E83;
+    }
+    
+    .uni-hello-addfile {
+    	text-align: center;
+    	line-height: 300upx;
+    	background: #FFF;
+    	padding: 50upx;
+    	margin-top: 10px;
+    	font-size: 38upx;
+    	color: #808080;
+    }
 </style>

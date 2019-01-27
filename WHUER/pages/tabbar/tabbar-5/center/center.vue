@@ -1,14 +1,26 @@
 <template>
 	<view class="center">
-		<view class="logo" @click="bindLogin" :hover-class="!hasLogin ? 'logo-hover' : ''">
-			<image class="logo-img" :src="hasLogin ? avatarUrl:avatarUrl1"></image>
+		<view class="logo" @click="bindLogin" :hover-class="!isLogin ? 'logo-hover' : ''">
+			<image class="logo-img" :src="isLogin ? data.headimg:avatarUrl1"></image>
 			<view class="logo-title">
-				<text class="uer-name">Hi，{{hasLogin ? userName : '您未登录'}}</text>
-				<text class="go-login navigat-arrow" v-if="!hasLogin">&#xe65e;</text>
+				<text class="uer-name">Hi，{{isLogin ? data.nickname : '您未登录'}}</text>
+				<text class="go-login navigat-arrow" v-if="!isLogin">&#xe65e;</text>
 		
 			</view>
 		</view>
-		<view class="btn-row"><button v-if="hasLogin" type="default" @tap="bindLogout">退出登录</button></view>
+		<view class="logo">
+			<view class="logo-info">
+				<text class="uer-name">详细信息:{{isLogin ? "姓名："+data.real_name : '暂无信息'}}</text>
+			</view>
+			<view class="logo-info">
+				<text class="" v-if="isLogin">粉丝数：{{data.fansnum}}|关注数：{{data.follownum}}</text>
+			</view>
+			<view class="logo-info">
+				<text class="" v-if="isLogin">口号：{{data.signature}}</text>
+					
+			</view>
+		</view>
+		<view class="btn-row"><button v-if="isLogin" type="default" @tap="bindLogout">退出登录</button></view>
 		
 		<view class="center-list">
 			<view class="center-list-item border-bottom">
@@ -57,7 +69,7 @@
 	
 	export default {
 	    computed: {
-	        ...mapState(['hasLogin', 'forcedLogin','userName','avatarUrl'])
+	        ...mapState(['isLogin', 'forcedLogin','data'])
 	    },
 		data() {
 			return {
@@ -75,7 +87,7 @@
 			//	}
 			//},
 	       bindLogin() {
-	           if(!this.hasLogin){
+	           if(!this.isLogin){
 					uni.navigateTo({
 						url:"../../../user/login/login"
 					})
@@ -134,5 +146,13 @@
 	
 	button.primary {
 	    background-color: #0faeff;
+	}
+	.logo-info {
+		
+		width: 100%;
+		height:30upx;
+		display: flex;
+		flex-direction: column;
+		
 	}
 </style>

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import service from '../../../common/service.js';
+  
     import mInput from '../../../components/m-input.vue';
 
     export default {

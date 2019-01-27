@@ -1,20 +1,9 @@
 <template>
-    <view class="content">
-        <view class="input-group">
-            <view class="input-row">
-                <text class="title">邮箱：</text>
-                <m-input type="text" focus clearable v-model="email" placeholder="请输入邮箱"></m-input>
-            </view>
-        </view>
-
-        <view class="btn-row">
-            <button type="primary" class="primary" @tap="findPassword">提交</button>
-        </view>
-    </view>
+   <view class="" style="margin-top: 100upx;margin-left: 70upx;"><text style="text-align: center;">请使用武汉大学图书馆账号密码登录</text></view>
 </template>
 
 <script>
-    import service from '../../../common/service.js';
+    
     import mInput from '../../../components/m-input.vue';
 
     export default {

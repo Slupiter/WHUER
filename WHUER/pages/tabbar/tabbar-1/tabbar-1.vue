@@ -40,19 +40,6 @@ export default {
 </script>
 
 <style>
-.content {
-	text-align: center;
-	height: 100%;
-	margin-top: 200upx;
-}
-navigator {
-	height: 100upx;
-	background-color: gray;
-	margin: auto 200upx;
-}
-text {text-align: center;
-		padding: auto auto;
-		line-height: 3em;
-}
+
 
 </style>

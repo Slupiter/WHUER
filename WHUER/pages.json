@@ -47,7 +47,46 @@
         },
         {
             "path" : "pages/maincontent/bookexchange/bookexchange",
-            "style" : {}
+            "style": {
+				 "navigationBarTitleText": "详情",
+				"enablePullDownRefresh":true,
+                "app-plus": {
+                    "titleNView": {"titleText" : "",
+                                "tags" : [
+                                    {
+                                        "tag" : "img",
+                                        "src" : "./static/img/homeHL.png",
+                                        "position" : {
+                                            "left" : "auto",
+                                            "top" : "auto",
+                                            "width" : "26px",
+                                            "height" : "26px"
+                                        }
+                                    }
+                                ],
+                          "buttons": [  
+                            {
+                                
+                                    "text" : "\ue563",
+                                    "fontSrc" : "/static/uni.ttf",
+                                    "fontSize" : "22px" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+                            },
+							{
+							              "text" : "地点",
+							              "fontSize" : "14",
+							             "select" : true,
+							              "width" : "auto"
+							          },//原生标题栏按钮配置,
+									  {
+									                "text" : "评分",
+									                "fontSize" : "14",
+									               "select" : true,
+									                "width" : "auto"
+									            }//原生标题栏按钮配置,
+                        ]
+                    }
+                }
+			}
         },
         {
             "path" : "pages/maincontent/foodsearch/foodsearch",
