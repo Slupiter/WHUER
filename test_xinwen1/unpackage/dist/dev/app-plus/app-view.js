@@ -1068,17 +1068,17 @@ function gz$gwx_2(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_2)return __WXML_GLOBAL__.ops_cached.$gwx_2
 __WXML_GLOBAL__.ops_cached.$gwx_2=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'b14c1d70'])
-Z([3,'_view b14c1d70 content'])
-Z([3,'_view b14c1d70 title'])
+Z([3,'72c1a34b'])
+Z([3,'_view 72c1a34b content'])
+Z([3,'_view 72c1a34b title'])
 Z([a,[[7],[3,'title']]])
-Z([3,'_view b14c1d70 time'])
+Z([3,'_view 72c1a34b time'])
 Z([a,[[7],[3,'published_at']]])
-Z([3,'_image b14c1d70 image-view'])
+Z([3,'_image 72c1a34b image-view'])
 Z([3,'widthFix'])
 Z([[7],[3,'image']])
-Z([3,'_view b14c1d70 art-content'])
-Z([3,'_rich-text b14c1d70'])
+Z([3,'_view 72c1a34b art-content'])
+Z([3,'_rich-text 72c1a34b'])
 Z([[7],[3,'strings']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_2);return __WXML_GLOBAL__.ops_cached.$gwx_2
 }
@@ -1087,33 +1087,33 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_3)return __WXML_GLOBAL__.ops_cached.$gwx_3
 __WXML_GLOBAL__.ops_cached.$gwx_3=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([[9],[[10],[[6],[[7],[3,'$root']],[1,'0']]],[[8],'$root',[[7],[3,'$root']]]])
-Z([3,'b14c1d70'])
+Z([3,'72c1a34b'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_3);return __WXML_GLOBAL__.ops_cached.$gwx_3
 }
 function gz$gwx_4(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_4)return __WXML_GLOBAL__.ops_cached.$gwx_4
 __WXML_GLOBAL__.ops_cached.$gwx_4=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'5976cde4'])
-Z([3,'_view 5976cde4 uni-list'])
+Z([3,'8432205e'])
+Z([3,'_view 8432205e uni-list'])
 Z([3,'index'])
 Z([3,'item'])
 Z([[7],[3,'list']])
 Z(z[2])
 Z([3,'handleProxy'])
-Z([3,'_view 5976cde4 uni-list-cell'])
+Z([3,'_view 8432205e uni-list-cell'])
 Z([[7],[3,'$k']])
-Z([[2,'+'],[1,'5976cde4-0-'],[[7],[3,'index']]])
+Z([[2,'+'],[1,'8432205e-0-'],[[7],[3,'index']]])
 Z([[6],[[7],[3,'item']],[3,'post_id']])
 Z([3,'uni-list-cell-hover'])
 Z([[7],[3,'index']])
-Z([3,'_view 5976cde4 uni-media-list'])
-Z([3,'_image 5976cde4 uni-media-list-logo'])
+Z([3,'_view 8432205e uni-media-list'])
+Z([3,'_image 8432205e uni-media-list-logo'])
 Z([[6],[[7],[3,'item']],[3,'author_avatar']])
-Z([3,'_view 5976cde4 uni-media-list-body'])
-Z([3,'_view 5976cde4 uni-media-list-text-top'])
+Z([3,'_view 8432205e uni-media-list-body'])
+Z([3,'_view 8432205e uni-media-list-text-top'])
 Z([a,[[6],[[7],[3,'item']],[3,'title']]])
-Z([3,'_view 5976cde4 uni-media-list-text-bottom uni-ellipsis'])
+Z([3,'_view 8432205e uni-media-list-text-bottom uni-ellipsis'])
 Z([a,[[6],[[7],[3,'item']],[3,'created_at']]])
 })(__WXML_GLOBAL__.ops_cached.$gwx_4);return __WXML_GLOBAL__.ops_cached.$gwx_4
 }
@@ -1122,7 +1122,7 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_5)return __WXML_GLOBAL__.ops_cached.$gwx_5
 __WXML_GLOBAL__.ops_cached.$gwx_5=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([[9],[[10],[[6],[[7],[3,'$root']],[1,'0']]],[[8],'$root',[[7],[3,'$root']]]])
-Z([3,'5976cde4'])
+Z([3,'8432205e'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_5);return __WXML_GLOBAL__.ops_cached.$gwx_5
 }
 __WXML_GLOBAL__.ops_set.$gwx=z;
@@ -1136,9 +1136,9 @@ return r
 }
 e_[x[0]]={f:m0,j:[],i:[],ti:[],ic:[]}
 d_[x[1]]={}
-d_[x[1]]["b14c1d70"]=function(e,s,r,gg){
+d_[x[1]]["72c1a34b"]=function(e,s,r,gg){
 var z=gz$gwx_2()
-var b=x[1]+':b14c1d70'
+var b=x[1]+':72c1a34b'
 r.wxVkey=b
 gg.f=$gdc(f_["./pages/detail/detail.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[1]);return}
@@ -1212,9 +1212,9 @@ return r
 }
 e_[x[2]]={f:m2,j:[],i:[],ti:[x[3]],ic:[]}
 d_[x[4]]={}
-d_[x[4]]["5976cde4"]=function(e,s,r,gg){
+d_[x[4]]["8432205e"]=function(e,s,r,gg){
 var z=gz$gwx_4()
-var b=x[4]+':5976cde4'
+var b=x[4]+':8432205e'
 r.wxVkey=b
 gg.f=$gdc(f_["./pages/index/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[4]);return}
@@ -1424,6 +1424,9 @@ style.childNodes[0].nodeValue = css;
 return rewritor;
 }
 setCssToHead([])();setCssToHead([[2,0]],undefined,{path:"./app.wxss"})();
+
+__wxAppCode__['app.wxss']=setCssToHead([[2,0]],undefined,{path:"./app.wxss"});    
+__wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
 ;var __pageFrameEndTime__ = Date.now();
 if(!window.__uniAppViewReady__){

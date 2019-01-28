@@ -1,2 +1,2 @@
 <import src="./forget-pwd.vue.wxml" />
-    <template is="f9354c70" data="{{ ...$root['0'], $root }}"/>
+    <template is="49c858cb" data="{{ ...$root['0'], $root }}"/>

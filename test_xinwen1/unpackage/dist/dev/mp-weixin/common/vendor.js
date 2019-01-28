@@ -5905,7 +5905,7 @@ try {
 
         var data = formatVmData(this)
         //fixed by xxxxxx
-        throttleSetData(page.setData.bind(page), JSON.parse(JSON.stringify(diff(data, page.data))))
+        throttleSetData(page.setData.bind(page), diff(data, page.data))
     }
 
     function initDataToMP() {

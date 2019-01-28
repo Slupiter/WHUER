@@ -6,7 +6,13 @@
             "style" : {
                 "navigationBarTitleText" : "WHUER"
             }
+        }, {
+            "path" : "pages/publish/uni-feedback",
+            "style" : {
+                "navigationBarTitleText" : "WHUER"
+            }
         },
+		
         {
             "path" : "pages/tabbar/tabbar-2/list1/list1",
             "style" : {}
@@ -47,50 +53,83 @@
         },
         {
             "path" : "pages/maincontent/bookexchange/bookexchange",
-            "style": {
-				 "navigationBarTitleText": "详情",
-				"enablePullDownRefresh":true,
-                "app-plus": {
-                    "titleNView": {"titleText" : "",
-                                "tags" : [
-                                    {
-                                        "tag" : "img",
-                                        "src" : "./static/img/homeHL.png",
-                                        "position" : {
-                                            "left" : "auto",
-                                            "top" : "auto",
-                                            "width" : "26px",
-                                            "height" : "26px"
-                                        }
-                                    }
-                                ],
-                          "buttons": [  
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "enablePullDownRefresh" : true,
+                "app-plus" : {
+                    "titleNView" : {
+                        "titleText" : "",
+                        "tags" : [
                             {
-                                
-                                    "text" : "\ue563",
-                                    "fontSrc" : "/static/uni.ttf",
-                                    "fontSize" : "22px" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+                                "tag" : "img",
+                                "src" : "./static/img/homeHL.png",
+                                "position" : {
+                                    "left" : "auto",
+                                    "top" : "auto",
+                                    "width" : "26px",
+                                    "height" : "26px"
+                                }
+                            }
+                        ],
+                        "buttons" : [
+                            {
+                                "text" : "\ue563",
+                                "fontSrc" : "/static/uni.ttf",
+                                "fontSize" : "22px" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
                             },
-							{
-							              "text" : "地点",
-							              "fontSize" : "14",
-							             "select" : true,
-							              "width" : "auto"
-							          },//原生标题栏按钮配置,
-									  {
-									                "text" : "评分",
-									                "fontSize" : "14",
-									               "select" : true,
-									                "width" : "auto"
-									            }//原生标题栏按钮配置,
+                            {
+                                "text" : "地点",
+                                "fontSize" : "14",
+                                "select" : true,
+                                "width" : "auto"
+                            }, //原生标题栏按钮配置,
+                            {
+                                "text" : "评分",
+                                "fontSize" : "14",
+                                "select" : true,
+                                "width" : "auto"
+                            } //原生标题栏按钮配置,
                         ]
                     }
                 }
-			}
+            }
         },
         {
             "path" : "pages/maincontent/foodsearch/foodsearch",
-            "style" : {}
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "enablePullDownRefresh" : true,
+                "app-plus" : {
+                    "titleNView" : {
+                        "titleText" : "",
+                        "tags" : [
+                            {
+                                "tag" : "img",
+                                "src" : "./static/img/homeHL.png",
+                                "position" : {
+                                    "left" : "auto",
+                                    "top" : "auto",
+                                    "width" : "26px",
+                                    "height" : "26px"
+                                }
+                            }
+                        ],
+                        "buttons" : [
+                            {
+                                "text" : "\ue563",
+                                "fontSrc" : "/static/uni.ttf",
+                                "fontSize" : "22px" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+                            },
+                            {
+                                "text" : "评分",
+                                "fontSize" : "14",
+                                "select" : true,
+                                "width" : "auto"
+                            } //原生标题栏按钮配置,
+                        ]
+                    }
+                }
+            }
         },
         {
             "path" : "pages/maincontent/schoolbus/schoolbus",
@@ -98,7 +137,34 @@
         },
         {
             "path" : "pages/maincontent/cat/cat",
-            "style" : {}
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "enablePullDownRefresh" : true,
+                "app-plus" : {
+                    "titleNView" : {
+                        "titleText" : "",
+                        "tags" : [
+                            {
+                                "tag" : "img",
+                                "src" : "./static/img/homeHL.png",
+                                "position" : {
+                                    "left" : "auto",
+                                    "top" : "auto",
+                                    "width" : "26px",
+                                    "height" : "26px"
+                                }
+                            }
+                        ],
+                        "buttons" : [
+                            {
+                                "text" : "\ue563",
+                                "fontSrc" : "/static/uni.ttf",
+                                "fontSize" : "22px" //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+                            }
+                        ]
+                    }
+                }
+            }
         },
         {
             "path" : "pages/maincontent/weather/weather",
@@ -107,24 +173,39 @@
         {
             "path" : "pages/user/pwd/pwd",
             "style" : {}
-        },{
+        },
+        {
             "path" : "pages/user/login/login",
             "style" : {}
-        },{
+        },
+        {
             "path" : "pages/user/reg/reg",
             "style" : {}
-        },{
-			"path": "platforms/app-plus/about/about",
-			"style": {
-				"navigationBarTitleText": "关于"
-			}
-		},
-		{
-			"path": "platforms/h5/about/about",
-			"style": {
-				"navigationBarTitleText": "关于"
-			}
-		}
+        },
+        {
+            "path" : "platforms/app-plus/about/about",
+            "style" : {
+                "navigationBarTitleText" : "关于"
+            }
+        },
+        {
+            "path" : "platforms/h5/about/about",
+            "style" : {
+                "navigationBarTitleText" : "关于"
+            }
+        },
+        {
+            "path" : "pages/publish/pub-book/pub-book",
+            "style" : {}
+        },
+        {
+            "path" : "pages/publish/pub-store/pub-store",
+            "style" : {}
+        },
+        {
+            "path" : "pages/publish/pub-cat/pub-cat",
+            "style" : {}
+        }
     ],
     "globalStyle" : {
         "navigationBarTextStyle" : "black",
@@ -179,14 +260,15 @@
             }
         ]
     },
-	"condition" : { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "", //模式名称
-				"path": "", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
-	}
+    "condition" : {
+        //模式配置，仅开发期间生效
+        "current" : 0, //当前激活的模式(list 的索引项)
+        "list" : [
+            {
+                "name" : "", //模式名称
+                "path" : "", //启动页面，必选
+                "query" : "" //启动参数，在页面的onLoad函数里面得到
+            }
+        ]
+    }
 }

@@ -1,0 +1,10 @@
+<template name="undefined"><view class="_view content"><uni-card title="标题文字" thumbnail="http://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png" extra="额外信息" note="Tips" class="_uni-card">内容主体，可自定义内容及样式</uni-card><uni-card title="标题文字" thumbnail="http://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png" extra="额外信息" note="Tips" class="_uni-card">内容主体，可自定义内容及样式</uni-card><uni-card title="标题文字" thumbnail="http://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png" extra="额外信息" note="Tips" class="_uni-card">内容主体，可自定义内容及样式</uni-card><uni-grid data="{{[
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/shu.png',text:'圣诞树'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/lindang.png',text:'铃铛'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/laoren.png',text:'圣诞老人'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/liwu.png',text:'礼物'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/maozi.png',text:'帽子'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/shoutao.png',text:'手套'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/xueqiao.png',text:'雪橇'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/xunlu.png',text:'驯鹿'},
+    {image:'https://img-cdn-qiniu.dcloud.net.cn/img/xuehua.png',text:'雪花'}]}}" class="_uni-grid"></uni-grid></view></template>

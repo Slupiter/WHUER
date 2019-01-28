@@ -1,0 +1,4 @@
+<import src="/components/uni-drawer/uni-drawer.vue.wxml" />
+
+<template name="5f14ac6a-default-5f14ac6a-0"><view style="padding:30rpx;" class="_view 5f14ac6a"><view class="_view 5f14ac6a uni-title">抽屉式导航</view></view></template>
+

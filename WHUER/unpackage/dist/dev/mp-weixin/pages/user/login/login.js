@@ -57,7 +57,7 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../../components
   (0, _vuex.mapState)(['forcedLogin', 'token', 'username', 'data'])),
 
   methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['login', 'getuserinfo']), {
+  (0, _vuex.mapMutations)(['login', 'getuserinfo', 'getHeader']), {
 
     initPosition: function initPosition() {
       /**
@@ -109,7 +109,7 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../../components
 
             //getuserinfo();
             console.log(_this.token);
-
+            _this.getHeader();
             _this.getuserinfo();
             uni.navigateBack();
           } else {

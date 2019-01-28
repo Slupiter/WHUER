@@ -15,6 +15,59 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
@@ -24,7 +77,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onLoad: function onLoad() {
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    formSubmit: function formSubmit(e) {
+      console.log("进入提交");
+    } } };exports.default = _default;
 
 /***/ }),
 
@@ -54,9 +110,245 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", { staticClass: "content" }, [_vm._v("页面 - 发视频")])
+  return _c("view", { staticClass: "content" }, [
+    _vm._m(0),
+    _c("view", { staticClass: "feedback-body" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sendDate.name,
+            expression: "sendDate.name"
+          }
+        ],
+        staticClass: "feedback-input",
+        attrs: { placeholder: "必填", eventid: "f580eeb4-0" },
+        domProps: { value: _vm.sendDate.name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.sendDate.name = $event.target.value
+          }
+        }
+      })
+    ]),
+    _c("view", { staticClass: "feedback-body" }, [
+      _c(
+        "view",
+        { staticClass: "uni-padding-wrap" },
+        [
+          _c(
+            "form",
+            {
+              attrs: { eventid: "f580eeb4-1" },
+              on: { submit: _vm.formSubmit }
+            },
+            [
+              _c(
+                "view",
+                [
+                  _c("view", { staticClass: "uni-title" }, [
+                    _vm._v("拥有者所在地点")
+                  ]),
+                  _c(
+                    "radio-group",
+                    {
+                      staticClass: "uni-column",
+                      attrs: { name: "place", mpcomid: "f580eeb4-0" }
+                    },
+                    [
+                      _c(
+                        "view",
+                        { staticClass: "uni-flex" },
+                        [
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "1" } }),
+                              _vm._v("信部")
+                            ],
+                            1
+                          ),
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "2" } }),
+                              _vm._v("文理学部")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _c(
+                        "view",
+                        { staticClass: " uni-flex" },
+                        [
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "3" } }),
+                              _vm._v("工部")
+                            ],
+                            1
+                          ),
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "4" } }),
+                              _vm._v("医学部")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _c("view", { staticClass: "uni-title" }, [
+                    _vm._v("图书地区")
+                  ]),
+                  _c(
+                    "radio-group",
+                    {
+                      staticClass: "uni-column",
+                      attrs: { name: "country", mpcomid: "f580eeb4-1" }
+                    },
+                    [
+                      _c(
+                        "view",
+                        { staticClass: "uni-flex" },
+                        [
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "in" } }),
+                              _vm._v("国内")
+                            ],
+                            1
+                          ),
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "out" } }),
+                              _vm._v("国外")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _c("view", { staticClass: "uni-title" }, [
+                    _vm._v("图书语言")
+                  ]),
+                  _c(
+                    "radio-group",
+                    {
+                      staticClass: "uni-column",
+                      attrs: { name: "language", mpcomid: "f580eeb4-2" }
+                    },
+                    [
+                      _c(
+                        "view",
+                        { staticClass: "uni-flex" },
+                        [
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "ch" } }),
+                              _vm._v("中文")
+                            ],
+                            1
+                          ),
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "en" } }),
+                              _vm._v("英文")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _c("view", { staticClass: "uni-title" }, [
+                    _vm._v("图书类型")
+                  ]),
+                  _c(
+                    "radio-group",
+                    {
+                      staticClass: "uni-column",
+                      attrs: { name: "types", mpcomid: "f580eeb4-3" }
+                    },
+                    [
+                      _c(
+                        "view",
+                        { staticClass: "uni-flex" },
+                        [
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "1" } }),
+                              _vm._v("教辅")
+                            ],
+                            1
+                          ),
+                          _c(
+                            "label",
+                            [
+                              _c("radio", { attrs: { value: "2" } }),
+                              _vm._v("课外")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _c(
+                "view",
+                { staticClass: "uni-btn-v uni-common-mt" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-submit ",
+                      attrs: { formType: "submit", type: "primary" }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ],
+                1
+              )
+            ]
+          )
+        ],
+        1
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "feedback-title" }, [
+      _c("text", [_vm._v("书名")])
+    ])
+  }
+]
 render._withStripped = true
 
 

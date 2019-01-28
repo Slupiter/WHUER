@@ -396,6 +396,10 @@ var store = new _vuex.default.Store({
     uid: '',
     username: '',
     token: '',
+    //timestamp:'',
+    //sign:'',
+    //nameplate:'',
+    header: {},
     data: {} },
 
   mutations: {
@@ -424,22 +428,33 @@ var store = new _vuex.default.Store({
 
       }
     },
+    getHeader: function getHeader(state) {
+      var timestamp = new Date().getTime();
+
+      var sign = md5Hex(state.uid.toString() + state.token + timestamp);
+      var nameplate = "111" + state.uid.toString() + "11";
+
+      console.log(state.uid.toString());
+      state.header = {
+        sign: sign,
+        nameplate: nameplate, //"111"+state.uid.toString()+"11",
+        timestamp: timestamp };
+
+      console.log(state.header);
+    },
     //获取用户的详细信息，存做全局变量
     getuserinfo: function getuserinfo(state) {
-      var timestamp = new Date().getTime();
-      console.log(timestamp);
-      var sign = md5Hex(state.uid.toString() + state.token + timestamp);
-      console.log(sign);
-      console.log(state.uid.toString());
+
+      //let timestamp = new Date().getTime();
+      //console.log(timestamp);
+      //let sign = md5Hex(state.uid.toString()+state.token+timestamp);
+      //	console.log(sign);
+      //console.log(state.uid.toString());
       uni.request({
         url: 'https://api.thinker.ink/v1/users/',
         method: 'GET',
         data: {},
-        header: {
-          sign: sign,
-          nameplate: "111" + state.uid.toString() + "11",
-          timestamp: timestamp },
-
+        header: state.header,
         success: function success(res) {
           console.log(state.uid + '下面是用户详细信息');
           state.data = res.data.data;

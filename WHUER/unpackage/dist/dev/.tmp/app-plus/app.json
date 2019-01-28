@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/publish/uni-feedback",
     "pages/tabbar/tabbar-2/detail-news/detail-news",
     "pages/tabbar/tabbar-3/tabbar-3",
     "pages/tabbar/tabbar-4/tabbar-4",
@@ -16,7 +17,10 @@
     "pages/user/pwd/pwd",
     "pages/user/login/login",
     "pages/user/reg/reg",
-    "platforms/app-plus/about/about"
+    "platforms/app-plus/about/about",
+    "pages/publish/pub-book/pub-book",
+    "pages/publish/pub-store/pub-store",
+    "pages/publish/pub-cat/pub-cat"
   ],
   "subPackages": [],
   "window": {

@@ -47,7 +47,7 @@
 			...mapState(['forcedLogin','token','username','data'])
 			},
         methods: {
-            ...mapMutations(['login','getuserinfo']),
+            ...mapMutations(['login','getuserinfo','getHeader']),
             
             initPosition() {
                 /**
@@ -99,7 +99,7 @@
 							
 						    //getuserinfo();
 							console.log(this.token);
-							
+							this.getHeader();
 							this.getuserinfo();
 							uni.navigateBack();
 						}else{

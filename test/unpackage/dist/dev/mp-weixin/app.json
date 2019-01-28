@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/list/list",
-    "pages/detail/detail",
+    "pages/list1/list1",
+    "pages/detail-news/detail-news",
     "pages/list2detail-detail/list2detail-detail",
     "pages/list2detail-list/list2detail-list",
     "pages/ucenter/ucenter"
@@ -13,6 +13,7 @@
     "navigationBarBackgroundColor": "#2F85FC",
     "backgroundColor": "#FFFFFF"
   },
+  "usingComponents": {},
   "tabBar": {
     "color": "#000000",
     "selectedColor": "#2F85FC",
@@ -20,7 +21,7 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/list/list",
+        "pagePath": "pages/list1/list1",
         "iconPath": "static/home.png",
         "selectedIconPath": "static/home-active.png",
         "text": "资讯"

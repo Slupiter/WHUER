@@ -21,12 +21,19 @@
 </template> 
 
 <script>
+	import {
+	    mapState,
+	    mapMutations
+	} from 'vuex'
 export default {
 	data() {
 		return {
-			active: false
+			active: false,
 		};
 	},
+	computed: {
+			...mapState(['token'])
+			},
 	onLoad() {},
 	onShow() {
 		// setTimeout(() => {
@@ -38,7 +45,9 @@ export default {
 	},
 	methods: {
 		goToPage(url) {
+			
 			if (!url) return;
+			if (!this.token) url="../../user/login/login";
 			uni.navigateTo({
 				url
 			});
