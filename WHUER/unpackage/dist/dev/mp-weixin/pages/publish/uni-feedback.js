@@ -60,7 +60,6 @@
 
 
 
-
 {
   data: function data() {
     return {
@@ -75,17 +74,17 @@
 
   },
   onLoad: function onLoad() {
-    var deviceInfo = {
-      appid: plus.runtime.appid,
-      imei: plus.device.imei, //设备标识
-      p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
-      md: plus.device.model, //设备型号
-      app_version: plus.runtime.version,
-      plus_version: plus.runtime.innerVersion, //基座版本号
-      os: plus.os.version,
-      net: "" + plus.networkinfo.getCurrentType() };
-
-    this.sendDate = Object.assign(deviceInfo, this.sendDate);
+    /*   let deviceInfo = {
+                                    appid: plus.runtime.appid,
+                                    imei: plus.device.imei, //设备标识
+                                    p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
+                                    md: plus.device.model, //设备型号
+                                    app_version: plus.runtime.version,
+                                    plus_version: plus.runtime.innerVersion, //基座版本号
+                                    os: plus.os.version,
+                                    net: "" + plus.networkinfo.getCurrentType()
+                                }
+                                this.sendDate = Object.assign(deviceInfo, this.sendDate); */
   },
   methods: {
     close: function close(e) {
@@ -127,8 +126,9 @@
       });
       uni.uploadFile({
         url: "https://service.dcloud.net.cn/feedback",
-        files: imgs,
-        formData: this.sendDate,
+        filePath: "_doc/uniapp_temp_1548756772133/compressed/1548756832849.jpg",
+        name: 'image',
+        //  formData: this.sendDate,
         success: function success(res) {
           if (res.statusCode === 200) {
             uni.showToast({
@@ -353,7 +353,7 @@ var render = function() {
         },
         [_vm._v("提交")]
       ),
-      _vm._m(2)
+      _c("view", { staticClass: "feedback-title" })
     ],
     1
   )
@@ -373,14 +373,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("view", { staticClass: "feedback-title" }, [
       _c("text", [_vm._v("QQ/邮箱")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "feedback-title" }, [
-      _c("text", [_vm._v("用户反馈的结果可在app打包后于DCloud开发者中心查看")])
     ])
   }
 ]

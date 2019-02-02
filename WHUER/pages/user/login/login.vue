@@ -213,7 +213,7 @@
    }
    
    button.primary {
-       background-color: #0faeff;
+       background-color: #1bb76e;
    }
    .action-row {
 	   text-align: center;

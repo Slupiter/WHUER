@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -64,6 +64,36 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
 
@@ -71,16 +101,184 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   data: function data() {
     return {
-      title: 'Hello' };
+      stars: [1, 2, 3, 4, 5],
+      imageList: [],
+      //  score: 0,
+
+      sendDate: {
+        content: '',
+        title: "" } };
+
 
   },
   onLoad: function onLoad() {
-
+    console.log("header是");
+    console.log(JSON.stringify(this.header));
+    /*  let deviceInfo = {
+                                                    appid: plus.runtime.appid,
+                                                    imei: plus.device.imei, //设备标识
+                                                    p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
+                                                    md: plus.device.model, //设备型号
+                                                    app_version: plus.runtime.version,
+                                                    plus_version: plus.runtime.innerVersion, //基座版本号
+                                                    os: plus.os.version,
+                                                    net: "" + plus.networkinfo.getCurrentType()
+                                                }
+                                                this.sendDate = Object.assign(deviceInfo, this.sendDate);*/
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['header'])),
+
   methods: {
     formSubmit: function formSubmit(e) {
       console.log("进入提交");
+      uni.showLoading({
+        title: '提交中',
+        mask: false });
+
+      var formData = e.detail.value;
+      formData.title = this.sendDate.title;
+      formData.content = this.sendDate.content;
+      formData.images = "http://p9260z3xy.bkt.clouddn.com/images/margin.jpeg";
+      console.log(formData);
+      if (formData.name == '' || formData.content == '' || formData.location == '') {
+        uni.showToast({
+          title: '请补全信息',
+          mask: false,
+          duration: 1500 });
+
+        return;
+      } else {
+        uni.request({
+          url: 'https://api.thinker.ink/v1/animals/publish/',
+          method: 'POST',
+          data: formData,
+          header: this.header,
+          success: function success(res) {
+            console.log(res);
+            uni.hideLoading();
+            if (res.statusCode === 201) {
+              uni.showToast({
+                title: "发布成功!" });
+
+
+            } else {
+              uni.showToast({
+                title: "发布失败!" });
+
+            }
+
+            console.log(res);
+          },
+
+          fail: function fail() {
+
+          },
+          complete: function complete() {} });
+
+
+      }
+
+    },
+    close: function close(e) {
+      this.imageList.splice(e, 1);
+    },
+
+    chooseImg: function chooseImg() {var _this = this; //选择图片
+      uni.chooseImage({
+        sourceType: ["camera", "album"],
+        sizeType: "compressed",
+        count: 8 - this.imageList.length,
+        success: function success(res) {
+          _this.imageList = _this.imageList.concat(res.tempFilePaths);
+        } });
+
+    },
+    // chooseStar(e) { //点击评星
+    //   this.sendDate.score = e;
+    // },
+    previewImage: function previewImage() {//预览图片
+      uni.previewImage({
+        urls: this.imageList });
+
+    },
+    send: function send() {var _this2 = this; //发送反馈
+      console.log(JSON.stringify(this.sendDate));
+      uni.request({
+        url: 'https://api.thinker.ink/v1/books/publish/',
+        method: 'POST',
+        data: {},
+        success: function success(res) {},
+        fail: function fail() {},
+        complete: function complete() {} });
+
+      //图片上传代码测试
+      console.log(JSON.stringify(this.imageList));
+      var imgs = this.imageList.map(function (value, index) {
+        return {
+          //name: "image" + index,
+          name: "image" + index,
+          uri: value };
+
+      });
+      console.log(JSON.stringify(imgs));
+      uni.uploadFile({
+        url: "https://api.thinker.ink/v1/uploadImage/",
+        // url: "https://service.dcloud.net.cn/feedback",
+        filePath: this.imageList[0],
+        name: 'image',
+        header: this.header,
+        //formData: this.sendDate,
+        success: function success(res) {
+          console.log('成功信息' + JSON.stringify(res));
+          if (res.statusCode == 200) {
+            uni.showToast({
+              title: "反馈成功!" });
+
+            _this2.imageList = [];
+            _this2.sendDate = {
+              score: 0,
+              content: "",
+              contact: "" };
+
+          }
+        },
+        fail: function fail(res) {
+          uni.showToast({
+            title: "失败",
+            icon: "none" });
+
+          console.log("失败信息" + JSON.stringify(res));
+
+        } });
+
+      /* uni.uploadFile({
+                   url: "https://service.dcloud.net.cn/feedback",
+                   files: imgs,
+                   formData: this.sendDate,
+                   success: (res) => {
+                       if (res.statusCode === 200) {
+                           uni.showToast({
+                               title: "反馈成功!"
+                           });
+                           this.imageList = [];
+                           this.sendDate = {
+                               score: 0,
+                               content: "",
+                               contact: ""
+                           }
+                       }
+                   },
+                   fail: (res) => {
+                       uni.showToast({
+                           title: "失败",
+                           icon:"none"
+                       });
+                       console.log(res)
+                   }
+               });*/
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 
@@ -110,7 +308,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view", { staticClass: "content" }, [
+  return _c("view", { staticClass: "page" }, [
     _vm._m(0),
     _c("view", { staticClass: "feedback-body" }, [
       _c("input", {
@@ -118,23 +316,48 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.sendDate.name,
-            expression: "sendDate.name"
+            value: _vm.sendDate.title,
+            expression: "sendDate.title"
           }
         ],
         staticClass: "feedback-input",
         attrs: { placeholder: "必填", eventid: "f580eeb4-0" },
-        domProps: { value: _vm.sendDate.name },
+        domProps: { value: _vm.sendDate.title },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.sendDate.name = $event.target.value
+            _vm.sendDate.title = $event.target.value
           }
         }
       })
     ]),
+    _vm._m(1),
+    _c("view", { staticClass: "feedback-body" }, [
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sendDate.content,
+            expression: "sendDate.content"
+          }
+        ],
+        staticClass: "feedback-textare",
+        attrs: { placeholder: "请填写详细信息...", eventid: "f580eeb4-1" },
+        domProps: { value: _vm.sendDate.content },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.sendDate.content = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._m(2),
     _c("view", { staticClass: "feedback-body" }, [
       _c(
         "view",
@@ -143,21 +366,19 @@ var render = function() {
           _c(
             "form",
             {
-              attrs: { eventid: "f580eeb4-1" },
+              attrs: { eventid: "f580eeb4-2" },
               on: { submit: _vm.formSubmit }
             },
             [
               _c(
                 "view",
                 [
-                  _c("view", { staticClass: "uni-title" }, [
-                    _vm._v("拥有者所在地点")
-                  ]),
+                  _c("view", { staticClass: "uni-title" }),
                   _c(
                     "radio-group",
                     {
                       staticClass: "uni-column",
-                      attrs: { name: "place", mpcomid: "f580eeb4-0" }
+                      attrs: { name: "location", mpcomid: "f580eeb4-0" }
                     },
                     [
                       _c(
@@ -168,7 +389,7 @@ var render = function() {
                             "label",
                             [
                               _c("radio", { attrs: { value: "1" } }),
-                              _vm._v("信部")
+                              _vm._v("信息学部")
                             ],
                             1
                           ),
@@ -191,7 +412,7 @@ var render = function() {
                             "label",
                             [
                               _c("radio", { attrs: { value: "3" } }),
-                              _vm._v("工部")
+                              _vm._v("工学部")
                             ],
                             1
                           ),
@@ -200,111 +421,6 @@ var render = function() {
                             [
                               _c("radio", { attrs: { value: "4" } }),
                               _vm._v("医学部")
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _c("view", { staticClass: "uni-title" }, [
-                    _vm._v("图书地区")
-                  ]),
-                  _c(
-                    "radio-group",
-                    {
-                      staticClass: "uni-column",
-                      attrs: { name: "country", mpcomid: "f580eeb4-1" }
-                    },
-                    [
-                      _c(
-                        "view",
-                        { staticClass: "uni-flex" },
-                        [
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "in" } }),
-                              _vm._v("国内")
-                            ],
-                            1
-                          ),
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "out" } }),
-                              _vm._v("国外")
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _c("view", { staticClass: "uni-title" }, [
-                    _vm._v("图书语言")
-                  ]),
-                  _c(
-                    "radio-group",
-                    {
-                      staticClass: "uni-column",
-                      attrs: { name: "language", mpcomid: "f580eeb4-2" }
-                    },
-                    [
-                      _c(
-                        "view",
-                        { staticClass: "uni-flex" },
-                        [
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "ch" } }),
-                              _vm._v("中文")
-                            ],
-                            1
-                          ),
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "en" } }),
-                              _vm._v("英文")
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  ),
-                  _c("view", { staticClass: "uni-title" }, [
-                    _vm._v("图书类型")
-                  ]),
-                  _c(
-                    "radio-group",
-                    {
-                      staticClass: "uni-column",
-                      attrs: { name: "types", mpcomid: "f580eeb4-3" }
-                    },
-                    [
-                      _c(
-                        "view",
-                        { staticClass: "uni-flex" },
-                        [
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "1" } }),
-                              _vm._v("教辅")
-                            ],
-                            1
-                          ),
-                          _c(
-                            "label",
-                            [
-                              _c("radio", { attrs: { value: "2" } }),
-                              _vm._v("课外")
                             ],
                             1
                           )
@@ -345,7 +461,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("view", { staticClass: "feedback-title" }, [
-      _c("text", [_vm._v("书名")])
+      _c("text", [_vm._v("信息标题")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "feedback-title" }, [
+      _c("text", [_vm._v("内容")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "feedback-title" }, [
+      _c("text", [_vm._v("地点（必选）：")])
     ])
   }
 ]

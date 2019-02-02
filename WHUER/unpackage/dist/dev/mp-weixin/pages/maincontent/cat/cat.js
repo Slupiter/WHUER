@@ -85,6 +85,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _uniDrawer = _interopRequireDefault(__webpack_require__(/*! ../../../components/uni-drawer.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\WHUER\\components\\uni-drawer.vue"));
 var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../components/uni-icon.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\WHUER\\components\\uni-icon.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
@@ -304,17 +326,14 @@ var render = function() {
       ]),
       _c(
         "view",
-        { staticClass: "uni-list" },
+        {},
         _vm._l(_vm.listData, function(value, key) {
           return _c(
             "view",
             {
               key: key,
-              staticClass: "uni-list-cell",
-              attrs: {
-                "hover-class": "uni-list-cell-hover",
-                eventid: "210d1e2a-1-" + key
-              },
+              staticClass: "uni-card",
+              attrs: { eventid: "210d1e2a-1-" + key },
               on: {
                 click: function($event) {
                   _vm.goDetail(value)
@@ -322,20 +341,26 @@ var render = function() {
               }
             },
             [
-              _c("view", { staticClass: "uni-media-list" }, [
+              _c("view", { staticClass: "uni-card-header uni-card-media" }, [
                 _c("image", {
-                  staticClass: "uni-media-list-logo",
-                  attrs: { src: value.images[0] }
+                  staticClass: "uni-card-media-logo",
+                  attrs: { src: "../../../static/home/c.png" }
                 }),
-                _c("view", { staticClass: "uni-media-list-body" }, [
-                  _c("view", { staticClass: "uni-media-list-text-top" }, [
-                    _vm._v(_vm._s(value.title)),
-                    _c("text", [_vm._v(_vm._s(value.location))])
+                _c("view", { staticClass: "uni-card-media-body" }, [
+                  _c("text", { staticClass: "uni-card-media-text-top" }, [
+                    _vm._v(_vm._s(value.nickname))
                   ]),
-                  _c("view", { staticClass: "uni-media-list-text-bottom" }, [
-                    _c("text", [_vm._v(_vm._s(value.content))])
+                  _c("text", { staticClass: "uni-card-media-text-bottom " }, [
+                    _c("text", {}, [_vm._v(_vm._s(value.title))]),
+                    _c("text", { staticClass: "uni-common-pl" }, [
+                      _vm._v(_vm._s(value.created_at))
+                    ])
                   ])
                 ])
+              ]),
+              _vm._m(0, true),
+              _c("view", { staticClass: "uni-card-footer" }, [
+                _c("view", {}, [_vm._v(_vm._s(value.content))])
               ])
             ]
           )
@@ -478,7 +503,21 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "uni-card-content image-view" }, [
+      _c("image", {
+        staticClass: "image",
+        attrs: {
+          src: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg"
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 

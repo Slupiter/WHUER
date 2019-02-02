@@ -9,11 +9,33 @@
 			
 			
 		</view>
-		
+		<view class="">
+		<view class="uni-card" v-for="(value,key) in listData" :key="key" @click="goDetail(value)">
+			<view class="uni-card-header uni-card-media" >
+				<image class="uni-card-media-logo" src="../../../static/home/c.png"></image>
+				<view class="uni-card-media-body">
+					<text class="uni-card-media-text-top">{{value.nickname}}</text>
+					<text class="uni-card-media-text-bottom ">
+					<text class="">{{value.title}}</text>
+					<text class="uni-common-pl">{{value.created_at}}</text></text>
+				</view>
+			</view>
+			<view class="uni-card-content image-view">
+				<image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" class="image"></image>
+			</view>
+			<view class="uni-card-footer">
+			<!--	<view class="uni-card-link">Like</view>
+				<view class="uni-card-link">Comment</view>
+				<view class="uni-card-link">Read more</view>-->
+				<view class="">{{value.content}}</view>
+			</view>
+		</view>
+		</view>
+		<!--
 		<view class="uni-list">
 			<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(value,key) in listData" :key="key" @click="goDetail(value)">
 				<view class="uni-media-list">
-					<image class="uni-media-list-logo" :src="value.images[0]"></image>
+					<image class="uni-media-list-logo" src="http://placehold.it/150x150"></image>
 					<view class="uni-media-list-body">
 						<view class="uni-media-list-text-top">{{value.title}}
 						<text>{{value.location}}</text></view>
@@ -24,7 +46,7 @@
 					</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 		
 		
 		
@@ -236,7 +258,22 @@
 </script>
 
 <style>
+	.uni-card{
+		margin-top:50upx;
+	}
 	
+	.page {
+	    padding-top: 60upx; background: #efeff4;
+	}
+	
+	.image-view {
+	    height: 480upx;
+	    overflow: hidden;
+	}
+	
+	.image {
+	    width: 100%;
+	}
 	.header {
 		display: flex;
 		flex-direction: row;

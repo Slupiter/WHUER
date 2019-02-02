@@ -31,6 +31,7 @@
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
@@ -96,7 +97,7 @@ var render = function() {
     _c("image", {
       staticClass: "logo",
       class: { active: _vm.active },
-      attrs: { src: "../../../static/logo.png", mode: "aspectFit" }
+      attrs: { src: "../../../static/07.png", mode: "aspectFit" }
     }),
     _c("view", { staticClass: "tabbar-box-wrap" }, [
       _c("view", { staticClass: "tabbar-box" }, [
@@ -116,12 +117,9 @@ var render = function() {
           [
             _c("image", {
               staticClass: "box-image",
-              attrs: {
-                src: "../../../static/img/release.png",
-                mode: "aspectFit"
-              }
+              attrs: { src: "../../../static/book.png", mode: "aspectFit" }
             }),
-            _c("text", { staticClass: "explain" }, [_vm._v("发图文")])
+            _c("text", { staticClass: "explain" }, [_vm._v("书籍交换")])
           ]
         ),
         _c(
@@ -140,9 +138,9 @@ var render = function() {
           [
             _c("image", {
               staticClass: "box-image",
-              attrs: { src: "../../../static/img/video.png", mode: "aspectFit" }
+              attrs: { src: "../../../static/cat.png", mode: "aspectFit" }
             }),
-            _c("text", { staticClass: "explain" }, [_vm._v("发视频")])
+            _c("text", { staticClass: "explain" }, [_vm._v("动物信息")])
           ]
         ),
         _c(
@@ -159,9 +157,9 @@ var render = function() {
           [
             _c("image", {
               staticClass: "box-image",
-              attrs: { src: "../../../static/img/qa.png", mode: "aspectFit" }
+              attrs: { src: "../../../static/shop.png", mode: "aspectFit" }
             }),
-            _c("text", { staticClass: "explain" }, [_vm._v("提问")])
+            _c("text", { staticClass: "explain" }, [_vm._v("新建店家")])
           ]
         )
       ])

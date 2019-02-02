@@ -119,8 +119,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+
 var _uniDrawer = _interopRequireDefault(__webpack_require__(/*! ../../../components/uni-drawer.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\WHUER\\components\\uni-drawer.vue"));
-var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../components/uni-icon.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\WHUER\\components\\uni-icon.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../components/uni-icon.vue */ "C:\\Users\\26231\\Documents\\HBuilderProjects\\WHUER\\components\\uni-icon.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   components: {
     uniDrawer: _uniDrawer.default,
@@ -136,8 +150,53 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       searchData: {},
       getting: false };
 
+
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['isLogin'])),
+
   methods: {
+    bindClick: function bindClick(e) {
+      console.log(e);
+      var bname = e.mp.currentTarget.dataset.bname;
+      var bowner = e.mp.currentTarget.dataset.bowner;
+      var bid = e.mp.currentTarget.dataset.bid;
+      if (this.isLogin) {
+        uni.navigateTo({
+          url: './post?bname=' + bname + '&bowner=' + bowner + 'bid=' + bid,
+          success: function success(res) {},
+          fail: function fail() {},
+          complete: function complete() {} });
+
+      } else {
+
+        uni.navigateTo({
+          url: '../../user/login/login',
+          success: function success(res) {},
+          fail: function fail() {},
+          complete: function complete() {} });
+
+
+      }
+    },
+    gouser: function gouser() {
+      uni.navigateTo({
+        url: '../../user/pwd/pwd',
+        success: function success(res) {},
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    dislike: function dislike(key) {var _this = this;
+      uni.showModal({
+        content: '不感兴趣？',
+        success: function success(res) {
+          if (res.confirm) {
+            _this.listData.splice(key, 1);
+          }
+        } });
+
+    },
     formSubmit: function formSubmit(e) {
       this.reLoad = true;
       var formData = e.detail.value;
@@ -168,7 +227,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       this.rightDrawerVisible = false;
 
     },
-    getList: function getList() {var _this = this;
+    getList: function getList() {var _this2 = this;
       //防止多次点击getList
       if (this.getting) {
         return;
@@ -210,19 +269,19 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
 
           }
           console.log(res);
-          if (!_this.reLoad) {
+          if (!_this2.reLoad) {
             res.data.data.forEach(function (news) {
-              _this.listData = _this.listData.concat(res.data.data);
-              console.log(_this.listData);
+              _this2.listData = _this2.listData.concat(res.data.data);
+              console.log(_this2.listData);
 
             });
           } else {
-            _this.listData = res.data.data;
+            _this2.listData = res.data.data;
           }
-          _this.nextPage = res.data.next;
-          _this.reLoad = false;
-          console.log(_this.nextPage);
-          console.log(_this.listData[0].images[0]);
+          _this2.nextPage = res.data.next;
+          _this2.reLoad = false;
+          console.log(_this2.nextPage);
+          console.log(_this2.listData[0].images[0]);
         },
         fail: function fail() {},
         complete: function complete() {} });
@@ -345,62 +404,84 @@ var render = function() {
           1
         )
       ]),
-      _c(
-        "view",
-        { staticClass: "uni-list" },
-        _vm._l(_vm.listData, function(value, key) {
-          return _c(
-            "view",
-            {
-              key: key,
-              staticClass: "uni-list-cell",
-              attrs: {
-                "hover-class": "uni-list-cell-hover",
-                eventid: "684237fc-1-" + key
-              },
-              on: {
-                click: function($event) {
-                  _vm.goDetail(value)
-                }
-              }
+      _vm._l(_vm.listData, function(data, key) {
+        return _c(
+          "view",
+          {
+            key: key,
+            staticClass: "list-cell",
+            attrs: {
+              "hover-class": "uni-list-cell-hover",
+              "data-bname": data.name,
+              "data-bowner": data.nickname,
+              "data-bid": data.bid,
+              eventid: "684237fc-3-" + key
             },
-            [
-              _c("view", { staticClass: "uni-media-list" }, [
-                _c("image", {
-                  staticClass: "uni-media-list-logo",
-                  attrs: { src: value.images[0] }
-                }),
-                _c("view", { staticClass: "uni-media-list-body" }, [
-                  _c("view", { staticClass: "uni-media-list-text-top" }, [
-                    _vm._v(_vm._s(value.name)),
-                    _c("text", [_vm._v(_vm._s(value.nickname))])
+            on: { click: _vm.bindClick }
+          },
+          [
+            _c("view", { staticClass: "media-list" }, [
+              _c("view", { staticClass: "media-image-left" }, [
+                _c(
+                  "text",
+                  {
+                    staticClass: "media-title media-title2 name",
+                    attrs: { eventid: "684237fc-1-" + key },
+                    on: { tap: _vm.gouser }
+                  },
+                  [_vm._v(_vm._s(data.nickname))]
+                ),
+                _c("text", { staticClass: "media-title media-title2" }, [
+                  _vm._v(_vm._s(data.name))
+                ]),
+                _vm._m(0, true)
+              ]),
+              _c("view", { staticClass: "media-foot" }, [
+                _c("view", { staticClass: "media-info" }, [
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.level))
                   ]),
-                  _c("view", { staticClass: "uni-media-list-text-bottom" }, [
-                    _c("text", [
-                      _vm._v(
-                        _vm._s(value.place) +
-                          "|" +
-                          _vm._s(value.level) +
-                          "|" +
-                          _vm._s(value.types) +
-                          "|" +
-                          _vm._s(value.created_at)
-                      )
-                    ])
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.language))
+                  ]),
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.country))
+                  ]),
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.types))
+                  ]),
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.place))
+                  ]),
+                  _c("text", { staticClass: "info-text" }, [
+                    _vm._v(_vm._s(data.status ? "已交换" : "未交换"))
                   ])
-                ])
+                ]),
+                _c(
+                  "view",
+                  {
+                    staticClass: "max-close-view",
+                    attrs: { eventid: "684237fc-2-" + key },
+                    on: {
+                      click: function($event) {
+                        _vm.dislike(key)
+                      }
+                    }
+                  },
+                  [_vm._m(1, true)]
+                )
               ])
-            ]
-          )
-        })
-      ),
+            ])
+          ]
+        )
+      }),
       _c(
         "uni-drawer",
         {
           attrs: {
             visible: _vm.rightDrawerVisible,
             mode: "right",
-            eventid: "684237fc-4",
+            eventid: "684237fc-6",
             mpcomid: "684237fc-6"
           },
           on: { close: _vm.closeRightDrawer }
@@ -413,7 +494,7 @@ var render = function() {
               _c(
                 "form",
                 {
-                  attrs: { eventid: "684237fc-3" },
+                  attrs: { eventid: "684237fc-5" },
                   on: { submit: _vm.formSubmit, reset: _vm.formReset }
                 },
                 [
@@ -633,7 +714,7 @@ var render = function() {
                             size: "mini",
                             formType: "submit",
                             type: "primary",
-                            eventid: "684237fc-2"
+                            eventid: "684237fc-4"
                           },
                           on: { tap: _vm.closeRightDrawer }
                         },
@@ -668,10 +749,30 @@ var render = function() {
         ]
       )
     ],
-    1
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "image-section image-section-left" }, [
+      _c("image", {
+        staticClass: "image-list1 image-list2",
+        attrs: { src: "../../../static/book_real.jpg" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "close-view" }, [
+      _c("text", { staticClass: "close" }, [_vm._v("×")])
+    ])
+  }
+]
 render._withStripped = true
 
 

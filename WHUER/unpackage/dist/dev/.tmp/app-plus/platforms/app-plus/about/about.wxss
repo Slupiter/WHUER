@@ -120,4 +120,7 @@ template {
         -ms-flex: 1;
             flex: 1;
 }
+._button.bbb {
+    background-color: #1bb76e;
+}
 

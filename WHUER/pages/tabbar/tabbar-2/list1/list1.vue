@@ -237,6 +237,8 @@
 	}
 
 	.uni-swiper-tab {
+		background-color: #1bb76e;
+		
 		width: 100%;
 		white-space: nowrap;
 		line-height: 100upx;
@@ -249,11 +251,12 @@
 		width: 150upx;
 		display: inline-block;
 		text-align: center;
-		color: #555;
+		color: #95ffd9;
 	}
 
 	.uni-tab-bar .active {
-		color: #007AFF;
+		color: white;
+		
 	}
 
 	.uni-tab-bar .swiper-box {

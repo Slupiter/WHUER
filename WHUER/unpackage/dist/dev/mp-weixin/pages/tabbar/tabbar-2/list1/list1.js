@@ -116,7 +116,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
 {
   name: 'uni-media-list',
   props: {
@@ -1345,9 +1344,6 @@ var render = function() {
                 _c("view", { staticClass: "media-info" }, [
                   _c("text", { staticClass: "info-text" }, [
                     _vm._v(_vm._s(_vm.data.source))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(_vm.data.comment_count) + "条评论")
                   ]),
                   _c("text", { staticClass: "info-text" }, [
                     _vm._v(_vm._s(_vm.data.datetime))

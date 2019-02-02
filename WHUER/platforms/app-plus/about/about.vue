@@ -3,12 +3,12 @@
 		<view class="content">
 			<view class="qrcode">
 				<image src="https://img.cdn.aliyun.dcloud.net.cn/stream/qr/__UNI__FAD3FD9.png/256" @longtap="save"></image>
-				<text style="margin-top:20px;">扫码体验看图App模板</text>
+				<text style="margin-top:20px;">扫码体验看图App</text>
 			</view>
 			<view class="desc">
-				基于uni-app开发的看图App模版，项目已开源。
+				基于uni-app开发的看图App，项目已开源。
 			</view>
-			<view class="source">
+		<!--	<view class="source">
 				<view class="title">本示例源码获取方式：</view>
 				<view class="source-list">
 					<view class="source-cell">
@@ -19,8 +19,8 @@
 						<text space="nbsp">2. </text><text @click="openLink" class="link">{{sourceLink}}</text> 
 					</view>
 				</view>
-			</view>
-			<button type="primary" @click="share">分享</button>
+			</view> -->
+			<button type="primary" class="bbb" @click="share">分享</button>
 		</view>
 		<view class="version">
 			当前版本：{{version}}
@@ -110,8 +110,8 @@
 							provider: this.providerList[res.tapIndex].id,
 							scene: this.providerList[res.tapIndex].type && this.providerList[res.tapIndex].type === 'WXSenceTimeline' ? 'WXSenceTimeline' : "WXSceneSession",
 							type: 0,
-							title:'欢迎体验uni-app',
-							summary: 'uni-app 是一个使用 Vue.js 开发跨平台应用的前端框架',
+							title:'欢迎体验WHUER',
+							summary: 'WHUER 使用 uni-app 开发',
 							imageUrl:'https://img-cdn-qiniu.dcloud.net.cn/uploads/nav_menu/8.jpg',
 							href:"https://m3w.cn/uniapp",
 							success: (res) => {
@@ -206,5 +206,8 @@
 	template {
 	    display: flex;
 	    flex: 1;
+	}
+	button.bbb {
+	    background-color: #1bb76e;
 	}
 </style>

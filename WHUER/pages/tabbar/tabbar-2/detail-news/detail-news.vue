@@ -108,7 +108,7 @@
 	.article-content {
 		padding: 0 30upx;
 		overflow: hidden;
-		font-size: 30upx;
+		font-size: 32upx;
 		margin-bottom: 30upx;
 	}
 </style>

@@ -14,7 +14,6 @@
                 <div class="media-foot">
                     <div class="media-info">
                         <text class="info-text">{{data.source}}</text>
-                        <text class="info-text">{{data.comment_count}}条评论</text>
                         <text class="info-text">{{data.datetime}}</text>
                     </div>
                     <div class="max-close-view" @click="close">

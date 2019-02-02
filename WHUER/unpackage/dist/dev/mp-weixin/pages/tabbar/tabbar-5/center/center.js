@@ -72,6 +72,7 @@
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
@@ -83,19 +84,42 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 
   data: function data() {
     return {
-      avatarUrl1: "../../../../static/logo.png" };
+      providerList: [],
+      avatarUrl1: "../../../../static/logo.png",
+      ava: '../../../../static/dog.png' };
 
   },
 
   methods: _objectSpread({},
   (0, _vuex.mapMutations)(['logout']), {
-    //goLogin() {
-    //	if(!this.hasLogin){
-    //	uni.navigateTo({
-    //		url:"../login/login"
-    //	})
-    //	}
-    //},
+    getnew: function getnew() {
+      uni.showModal({
+        title: '已是最新版本~_~',
+        content: '886^~^',
+
+        success: function success(res) {},
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    tophone: function tophone() {
+      uni.showToast({
+        icon: 'none',
+        title: '暂未开放',
+        mask: false,
+        duration: 1500 });
+
+    },
+    feedback: function feedback() {
+      uni.navigateTo({
+        url: '../../../publish/uni-feedback',
+        success: function success(res) {},
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+
+
     bindLogin: function bindLogin() {
       if (!this.isLogin) {
         uni.navigateTo({
@@ -126,7 +150,87 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 
 
 
-    } }) };exports.default = _default;
+    },
+    setup: function setup() {
+      uni.showToast({
+        icon: 'none',
+        title: '暂无设置',
+        mask: false,
+        duration: 1500 });
+
+    },
+    toshare: function toshare(e) {var _this = this;
+      if (this.providerList.length === 0) {
+        uni.showModal({
+          title: '当前环境无分享渠道!',
+          showCancel: false });
+
+        return;
+      }
+      var itemList = this.providerList.map(function (value) {
+        return value.name;
+      });
+      uni.showActionSheet({
+        itemList: itemList,
+        success: function success(res) {
+          uni.share({
+            provider: _this.providerList[res.tapIndex].id,
+            scene: _this.providerList[res.tapIndex].type && _this.providerList[res.tapIndex].type === 'WXSenceTimeline' ? 'WXSenceTimeline' : "WXSceneSession",
+            type: 0,
+            title: '欢迎体验WHUER',
+            summary: 'WHUER 使用 uni-app 开发',
+            imageUrl: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/nav_menu/8.jpg',
+            href: "https://m3w.cn/uniapp",
+            success: function success(res) {
+              console.log("success:" + JSON.stringify(res));
+            },
+            fail: function fail(e) {
+              uni.showModal({
+                content: e.errMsg,
+                showCancel: false });
+
+            } });
+
+        } });
+
+    } }),
+
+  onLoad: function onLoad() {var _this2 = this;
+    this.version = plus.runtime.version;
+    uni.getProvider({
+      service: 'share',
+      success: function success(e) {
+        var data = [];
+        for (var i = 0; i < e.provider.length; i++) {
+          switch (e.provider[i]) {
+            case 'weixin':
+              data.push({
+                name: '分享到微信好友',
+                id: 'weixin' });
+
+              data.push({
+                name: '分享到微信朋友圈',
+                id: 'weixin',
+                type: 'WXSenceTimeline' });
+
+              break;
+            case 'qq':
+              data.push({
+                name: '分享到QQ',
+                id: 'qq' });
+
+              break;
+            default:
+              break;}
+
+        }
+        _this2.providerList = data;
+      },
+      fail: function fail(e) {
+        console.log('获取登录通道失败' + JSON.stringify(e));
+      } });
+
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
@@ -161,7 +265,7 @@ var render = function() {
     _c(
       "view",
       {
-        staticClass: "logo",
+        staticClass: "logo uni-flex",
         attrs: {
           "hover-class": !_vm.isLogin ? "logo-hover" : "",
           eventid: "77487fd3-0"
@@ -171,7 +275,7 @@ var render = function() {
       [
         _c("image", {
           staticClass: "logo-img",
-          attrs: { src: _vm.isLogin ? _vm.data.headimg : _vm.avatarUrl1 }
+          attrs: { src: _vm.isLogin ? _vm.ava : _vm.avatarUrl1 }
         }),
         _c("view", { staticClass: "logo-title" }, [
           _c("text", { staticClass: "uer-name" }, [
@@ -181,38 +285,40 @@ var render = function() {
           ]),
           !_vm.isLogin
             ? _c("text", { staticClass: "go-login navigat-arrow" }, [
-                _vm._v("")
+                _vm._v("")
               ])
             : _vm._e()
         ])
       ]
     ),
-    _c("view", { staticClass: "logo" }, [
-      _c("view", { staticClass: "logo-info" }, [
-        _c("text", { staticClass: "uer-name" }, [
+    _c("view", { staticClass: "logo uni-column uni-center " }, [
+      _c("view", { staticClass: "logo-info uni-flex uni-common-mt" }, [
+        _c("text", [
           _vm._v(
-            "详细信息:" +
-              _vm._s(_vm.isLogin ? "姓名：" + _vm.data.real_name : "暂无信息")
+            _vm._s(_vm.isLogin ? "姓名：" + _vm.data.real_name : "暂无信息")
           )
         ])
       ]),
-      _c("view", { staticClass: "logo-info" }, [
-        _vm.isLogin
-          ? _c("text", {}, [
-              _vm._v(
-                "粉丝数：" +
-                  _vm._s(_vm.data.fansnum) +
-                  "|关注数：" +
-                  _vm._s(_vm.data.follownum)
-              )
+      _vm.isLogin
+        ? _c("view", { staticClass: "logo-info uni-flex uni-common-mt" }, [
+            _c("text", [_vm._v("粉丝数：" + _vm._s(_vm.data.fansNum))]),
+            _c("text", { staticClass: "uni-common-pl" }, [
+              _vm._v("关注数：" + _vm._s(_vm.data.followNum))
+            ]),
+            _c("text", { staticClass: "uni-common-pl" }, [
+              _vm._v("发布书籍：" + _vm._s(_vm.data.bookNum))
             ])
-          : _vm._e()
-      ]),
-      _c("view", { staticClass: "logo-info" }, [
-        _vm.isLogin
-          ? _c("text", {}, [_vm._v("口号：" + _vm._s(_vm.data.signature))])
-          : _vm._e()
-      ])
+          ])
+        : _vm._e(),
+      _c(
+        "view",
+        { staticClass: "logo-info uni-flex uni-common-mt uni-common-pb" },
+        [
+          _vm.isLogin
+            ? _c("text", {}, [_vm._v("口号：" + _vm._s(_vm.data.signature))])
+            : _vm._e()
+        ]
+      )
     ]),
     _c(
       "view",
@@ -231,72 +337,93 @@ var render = function() {
       ],
       1
     ),
-    _vm._m(0),
-    _vm._m(1),
     _c("view", { staticClass: "center-list" }, [
       _c(
         "view",
         {
           staticClass: "center-list-item border-bottom",
           attrs: { eventid: "77487fd3-2" },
+          on: { click: _vm.tophone }
+        },
+        [
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-text" }, [_vm._v("绑定手机")]),
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+        ]
+      ),
+      _c(
+        "view",
+        {
+          staticClass: "center-list-item",
+          attrs: { eventid: "77487fd3-3" },
+          on: { click: _vm.toshare }
+        },
+        [
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-text" }, [_vm._v("应用分享")]),
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+        ]
+      )
+    ]),
+    _c("view", { staticClass: "center-list" }, [
+      _c(
+        "view",
+        {
+          staticClass: "center-list-item border-bottom",
+          attrs: { eventid: "77487fd3-4" },
+          on: { click: _vm.getnew }
+        },
+        [
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-text" }, [_vm._v("检查更新")]),
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+        ]
+      ),
+      _c(
+        "view",
+        {
+          staticClass: "center-list-item",
+          attrs: { eventid: "77487fd3-5" },
+          on: { click: _vm.feedback }
+        },
+        [
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-text" }, [_vm._v("问题反馈")]),
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+        ]
+      )
+    ]),
+    _c("view", { staticClass: "center-list" }, [
+      _c(
+        "view",
+        {
+          staticClass: "center-list-item border-bottom",
+          attrs: { eventid: "77487fd3-6" },
           on: { click: _vm.goAbout }
         },
         [
-          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
           _c("text", { staticClass: "list-text" }, [_vm._v("关于")]),
-          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
         ]
       ),
-      _vm._m(2)
+      _c(
+        "view",
+        {
+          staticClass: "center-list-item",
+          attrs: { eventid: "77487fd3-7" },
+          on: { click: _vm.setup }
+        },
+        [
+          _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
+          _c("text", { staticClass: "list-text" }, [_vm._v("设置")]),
+          _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
+        ]
+      )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "center-list" }, [
-      _c("view", { staticClass: "center-list-item border-bottom" }, [
-        _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
-        _c("text", { staticClass: "list-text" }, [_vm._v("收藏图片")]),
-        _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
-      ]),
-      _c("view", { staticClass: "center-list-item" }, [
-        _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
-        _c("text", { staticClass: "list-text" }, [_vm._v("收藏图集")]),
-        _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "center-list" }, [
-      _c("view", { staticClass: "center-list-item border-bottom" }, [
-        _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
-        _c("text", { staticClass: "list-text" }, [_vm._v("管理图片")]),
-        _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
-      ]),
-      _c("view", { staticClass: "center-list-item" }, [
-        _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
-        _c("text", { staticClass: "list-text" }, [_vm._v("上传图片")]),
-        _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "center-list-item" }, [
-      _c("text", { staticClass: "list-icon" }, [_vm._v("")]),
-      _c("text", { staticClass: "list-text" }, [_vm._v("帐号管理")]),
-      _c("text", { staticClass: "navigat-arrow" }, [_vm._v("")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

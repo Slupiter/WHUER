@@ -57,6 +57,7 @@
 			</form>
 		</view>
 		</view>
+		<!--
 		<view class='feedback-title'>
 		    <text>图片(必填,提供书籍封面图片,总大小10M以下)</text>
 		</view>
@@ -91,7 +92,7 @@
         <button type="primary" class="feedback-submit" @tap="send">提交</button>
         <view class='feedback-title'>
             <text>用户反馈的结果可在app打包后于DCloud开发者中心查看</text>
-        </view>
+        </view>-->
     </view>
 </template>
 
@@ -117,7 +118,7 @@
         onLoad() {
 			console.log("header是");
 			console.log( JSON.stringify(this.header));
-          /*  let deviceInfo = {
+           /* let deviceInfo = {
                 appid: plus.runtime.appid,
                 imei: plus.device.imei, //设备标识
                 p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
@@ -205,53 +206,47 @@
             },
             send() { //发送反馈
 					console.log(JSON.stringify(this.sendDate));
-					uni.request({
-						url: 'https://api.thinker.ink/v1/books/publish/',
-						method: 'POST',
-						data: {},
-						success: res => {},
-						fail: () => {},
-						complete: () => {}
-					});
+					
 			//图片上传代码测试
-            /*    console.log(JSON.stringify(this.imageList));
+                console.log(JSON.stringify(this.imageList));
                 let imgs = this.imageList.map((value, index) => {
                     return {
                         //name: "image" + index,
                           name: "image" + index,
-                        uri: value
+                        image: value
                     }
                 })
 				console.log(JSON.stringify(imgs));
 				uni.uploadFile({
 				    url: "https://api.thinker.ink/v1/uploadImage/",
-				   // url: "https://service.dcloud.net.cn/feedback",
-				    files: imgs,//this.imageList[0],
+				 //   url: "https://service.dcloud.net.cn/feedback",
+				   filePath: this.imageList[0],
+				  name:'image',
 					header:this.header,
 				    //formData: this.sendDate,
 				    success: (res) => {
-				        if (res.statusCode === 200) {
-				            uni.showToast({
-				                title: "反馈成功!"
-				            });
-							console.log(JSON.stringify(res));
-				            this.imageList = [];
-				            this.sendDate = {
-				                score: 0,
-				                content: "",
-				                contact: ""
-				            }
-				        }
-				    },
-				    fail: (res) => {
-				        uni.showToast({
-				            title: "失败",
-				            icon:"none"
-				        });
-				        console.log(res)
-						console.log(JSON.stringify(res));
-				    }
-				}); */
+						console.log('成功信息'+JSON.stringify(res));
+				           if (res.statusCode == 201) {
+				               uni.showToast({
+				                   title: "反馈成功!"
+				               });
+				               this.imageList = [];
+				               this.sendDate = {
+				                   score: 0,
+				                   content: "",
+				                   contact: ""
+				               }
+				           }
+				       },
+				       fail: (res) => {
+				           uni.showToast({
+				               title: "失败",
+				               icon:"none"
+				           });
+						   console.log("失败信息"+JSON.stringify(res));
+				          
+				       }
+				   });
                /* uni.uploadFile({
                     url: "https://service.dcloud.net.cn/feedback",
                     files: imgs,
@@ -446,4 +441,7 @@
     	color: #FFFFFF;
     	margin: 20upx;
     }
+	button.btn-submit {
+	    background-color: #1bb76e;
+	}
 </style>

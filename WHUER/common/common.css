@@ -2,7 +2,7 @@
 	font-family: texticons;
 	font-weight: normal;
 	font-style: normal;
-	src: url('https://at.alicdn.com/t/font_702773_g9f89om4v3j.ttf') format('truetype');
+	src: url('https://at.alicdn.com/t/font_1037097_qpe03tyyogc.ttf') format('truetype');
 }
 
 .index {
@@ -193,8 +193,8 @@ view.tag,.tag {
 	height: 240upx;
 	padding: 20upx;
 	box-sizing: border-box;
-	background-color: #FF80AB;
-	flex-direction: row;
+	background-color: #1bb76e;
+	
 	align-items: center;
 }
 
@@ -262,8 +262,8 @@ view.tag,.tag {
 	width: 40upx;
 	height: 90upx;
 	line-height: 90upx;
-	font-size: 34upx;
-	color: #FF80AB;
+	font-size: 40upx;
+	color: #2f3035;
 	text-align: center;
 	font-family: texticons;
 	margin-right: 20upx;
@@ -352,7 +352,7 @@ button {
 }
 
 button.login {
-	background-color: #FF80AB;
+	background-color: #1bb76e;
 	color: #fff;
 }
 

@@ -201,9 +201,10 @@ view{
 .feedback-star.active:after {
 	content: '\E438';
 }
-.feedback-submit {
-	background: #007AFF;
+._button.feedback-submit {
+	background-color: #1bb76e;
 	color: #FFFFFF;
 	margin: 20rpx;
 }
+
 

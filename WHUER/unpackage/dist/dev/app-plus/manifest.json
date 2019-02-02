@@ -39,8 +39,8 @@
     },
     "statusbar": {
       "immersed": "supportedDevice",
-      "style": "dark",
-      "background": "#F8F8F8"
+      "style": "light",
+      "background": "129d5c"
     },
     "distribute": {
       "google": {
@@ -81,7 +81,7 @@
     "arguments": "{\"name\":\"\",\"path\":\"\",\"query\":\"\",\"id\":0}",
     "allowsInlineMediaPlayback": true,
     "safearea": {
-      "background": "#333",
+      "background": "2f3035",
       "bottom": {
         "offset": "auto"
       }

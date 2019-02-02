@@ -1,21 +1,22 @@
 <template>
 	<view class="center">
-		<view class="logo" @click="bindLogin" :hover-class="!isLogin ? 'logo-hover' : ''">
-			<image class="logo-img" :src="isLogin ? data.headimg:avatarUrl1"></image>
+		<view class="logo uni-flex" @click="bindLogin" :hover-class="!isLogin ? 'logo-hover' : ''">
+			<image class="logo-img" :src="isLogin ? ava:avatarUrl1"></image>
 			<view class="logo-title">
 				<text class="uer-name">Hi，{{isLogin ? data.nickname : '您未登录'}}</text>
-				<text class="go-login navigat-arrow" v-if="!isLogin">&#xe65e;</text>
+				<text class="go-login navigat-arrow" v-if="!isLogin">&#xe6f8;</text>
 		
 			</view>
 		</view>
-		<view class="logo">
-			<view class="logo-info">
-				<text class="uer-name">详细信息:{{isLogin ? "姓名："+data.real_name : '暂无信息'}}</text>
+		<view class="logo uni-column uni-center ">
+			<view class="logo-info uni-flex uni-common-mt">
+				<text> {{isLogin ? "姓名："+data.real_name : '暂无信息'}}</text>
 			</view>
-			<view class="logo-info">
-				<text class="" v-if="isLogin">粉丝数：{{data.fansnum}}|关注数：{{data.follownum}}</text>
+			<view class="logo-info uni-flex uni-common-mt"  v-if="isLogin">
+				<text >粉丝数：{{data.fansNum}}</text><text class="uni-common-pl">关注数：{{data.followNum}}</text>
+				<text class="uni-common-pl">发布书籍：{{data.bookNum}}</text>
 			</view>
-			<view class="logo-info">
+			<view class="logo-info uni-flex uni-common-mt uni-common-pb">
 				<text class="" v-if="isLogin">口号：{{data.signature}}</text>
 					
 			</view>
@@ -23,39 +24,39 @@
 		<view class="btn-row"><button v-if="isLogin" type="default" @tap="bindLogout">退出登录</button></view>
 		
 		<view class="center-list">
-			<view class="center-list-item border-bottom">
-				<text class="list-icon">&#xe60c;</text>
-				<text class="list-text">收藏图片</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+			<view class="center-list-item border-bottom" @click="tophone">
+				<text class="list-icon">&#xe726;</text>
+				<text class="list-text">绑定手机</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
-			<view class="center-list-item">
-				<text class="list-icon">&#xe60d;</text>
-				<text class="list-text">收藏图集</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+			<view class="center-list-item" @click="toshare">
+				<text class="list-icon">&#xe729;</text>
+				<text class="list-text">应用分享</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
 		</view>
 		<view class="center-list">
-			<view class="center-list-item border-bottom">
-				<text class="list-icon">&#xe60b;</text>
-				<text class="list-text">管理图片</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+			<view class="center-list-item border-bottom" @click="getnew">
+				<text class="list-icon">&#xe726;</text>
+				<text class="list-text">检查更新</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
-			<view class="center-list-item">
-				<text class="list-icon">&#xe61a;</text>
-				<text class="list-text">上传图片</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+			<view class="center-list-item" @click="feedback">
+				<text class="list-icon">&#xe6fa;</text>
+				<text class="list-text">问题反馈</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
 		</view>
 		<view class="center-list">
 			<view class="center-list-item border-bottom" @click="goAbout">
-				<text class="list-icon">&#xe603;</text>
+				<text class="list-icon">&#xe71b;</text>
 				<text class="list-text">关于</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
-			<view class="center-list-item">
-				<text class="list-icon">&#xe609;</text>
-				<text class="list-text">帐号管理</text>
-				<text class="navigat-arrow">&#xe65e;</text>
+			<view class="center-list-item" @click="setup">
+				<text class="list-icon">&#xe728;</text>
+				<text class="list-text">设置</text>
+				<text class="navigat-arrow">&#xe6f8;</text>
 			</view>
 		</view>
 	</view>
@@ -73,19 +74,42 @@
 	    },
 		data() {
 			return {
-				avatarUrl1:"../../../../static/logo.png"
+				providerList:[],
+				avatarUrl1:"../../../../static/logo.png",
+				ava:'../../../../static/dog.png'
 			}
 		},
 		
 	    methods: {
 	        ...mapMutations(['logout']),
-			//goLogin() {
-			//	if(!this.hasLogin){
-				//	uni.navigateTo({
-				//		url:"../login/login"
-				//	})
-			//	}
-			//},
+			getnew(){
+				uni.showModal({
+					title: '已是最新版本~_~',
+					content: '886^~^',
+				
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			tophone(){
+				uni.showToast({
+					icon:'none',
+					title: '暂未开放',
+					mask: false,
+					duration: 1500
+				});
+			},
+			feedback(){
+				uni.navigateTo({
+					url: '../../../publish/uni-feedback',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			
+			
 	       bindLogin() {
 	           if(!this.isLogin){
 					uni.navigateTo({
@@ -116,8 +140,87 @@
 					url:'/platforms/h5/about/about'
 				});
 				// #endif
+			},
+			setup(){
+				uni.showToast({
+					icon:'none',
+					title: '暂无设置',
+					mask: false,
+					duration: 1500
+				});
+			},
+			toshare(e) {
+				if (this.providerList.length === 0) {
+					uni.showModal({
+						title: '当前环境无分享渠道!',
+						showCancel: false
+					})
+					return;
+				}
+				let itemList = this.providerList.map(function (value) {
+					return value.name
+				})
+				uni.showActionSheet({
+					itemList: itemList,
+					success: (res) => {
+						uni.share({
+							provider: this.providerList[res.tapIndex].id,
+							scene: this.providerList[res.tapIndex].type && this.providerList[res.tapIndex].type === 'WXSenceTimeline' ? 'WXSenceTimeline' : "WXSceneSession",
+							type: 0,
+							title:'欢迎体验WHUER',
+							summary: 'WHUER 使用 uni-app 开发',
+							imageUrl:'https://img-cdn-qiniu.dcloud.net.cn/uploads/nav_menu/8.jpg',
+							href:"https://m3w.cn/uniapp",
+							success: (res) => {
+								console.log("success:" + JSON.stringify(res));
+							},
+							fail: (e) => {
+								uni.showModal({
+									content: e.errMsg,
+									showCancel:false
+								})
+							}
+						});
+					}
+				})
 			}
-	    }
+	    },
+		onLoad() {
+			this.version = plus.runtime.version;
+			uni.getProvider({
+				service: 'share',
+				success: (e) => {
+					let data = [];
+					for (let i = 0; i < e.provider.length; i++) {
+						switch (e.provider[i]) {
+							case 'weixin':
+								data.push({
+									name: '分享到微信好友',
+									id: 'weixin'
+								})
+								data.push({
+									name: '分享到微信朋友圈',
+									id: 'weixin',
+									type: 'WXSenceTimeline'
+								})
+								break;
+							case 'qq':
+								data.push({
+									name: '分享到QQ',
+									id: 'qq'
+								})
+								break;
+							default:
+								break;
+						}
+					}
+					this.providerList = data;
+				},
+				fail: (e) => {
+					console.log('获取登录通道失败'+ JSON.stringify(e));
+				}
+			});
+		}
 	}
 	
 </script>
@@ -134,7 +237,10 @@
 	    min-height: 100%;
 	    background-color: #EFEFEF;
 	}
-	
+	.logo {
+		background-color: #1bb76e;
+		
+	}
 	template {
 	    display: flex;
 	    flex: 1;
@@ -148,11 +254,11 @@
 	    background-color: #0faeff;
 	}
 	.logo-info {
-		
+		color: white;
 		width: 100%;
 		height:30upx;
-		display: flex;
-		flex-direction: column;
+		
+		
 		
 	}
 </style>

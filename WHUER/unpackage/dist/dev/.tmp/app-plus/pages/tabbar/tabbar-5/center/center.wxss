@@ -2,7 +2,7 @@
 	font-family: texticons;
 	font-weight: normal;
 	font-style: normal;
-	src: url('https://at.alicdn.com/t/font_702773_g9f89om4v3j.ttf') format('truetype');
+	src: url('https://at.alicdn.com/t/font_1037097_qpe03tyyogc.ttf') format('truetype');
 }
 .index {
 	-webkit-box-flex: 1;
@@ -225,15 +225,14 @@ view.tag,.tag {
 	padding: 20rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	background-color: #FF80AB;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: row;
-	    -ms-flex-direction: row;
-	        flex-direction: row;
+	background-color: #1bb76e;
+	
 	-webkit-box-align: center;
+	
 	-webkit-align-items: center;
+	
 	    -ms-flex-align: center;
+	
 	        align-items: center;
 }
 .logo-hover {
@@ -323,8 +322,8 @@ view.tag,.tag {
 	width: 40rpx;
 	height: 90rpx;
 	line-height: 90rpx;
-	font-size: 34rpx;
-	color: #FF80AB;
+	font-size: 40rpx;
+	color: #2f3035;
 	text-align: center;
 	font-family: texticons;
 	margin-right: 20rpx;
@@ -435,7 +434,7 @@ view.tag,.tag {
 	font-size: 38rpx;
 }
 ._button.login {
-	background-color: #FF80AB;
+	background-color: #1bb76e;
 	color: #fff;
 }
 ._button.register {
@@ -510,6 +509,9 @@ page {
     min-height: 100%;
     background-color: #EFEFEF;
 }
+.logo {
+	background-color: #1bb76e;
+}
 template {
     display: -webkit-box;
     display: -webkit-flex;
@@ -528,17 +530,8 @@ template {
     background-color: #0faeff;
 }
 .logo-info {
-	
+	color: white;
 	width: 100%;
 	height:30rpx;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
 }
 

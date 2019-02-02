@@ -50,7 +50,7 @@
 .article-content {
 	padding: 0 30rpx;
 	overflow: hidden;
-	font-size: 30rpx;
+	font-size: 32rpx;
 	margin-bottom: 30rpx;
 }
 

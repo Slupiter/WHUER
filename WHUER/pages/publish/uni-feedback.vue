@@ -45,7 +45,6 @@
         </view>
         <button type="primary" class="feedback-submit" @tap="send">提交</button>
         <view class='feedback-title'>
-            <text>用户反馈的结果可在app打包后于DCloud开发者中心查看</text>
         </view>
     </view>
 </template>
@@ -65,7 +64,7 @@
             }
         },
         onLoad() {
-            let deviceInfo = {
+         /*   let deviceInfo = {
                 appid: plus.runtime.appid,
                 imei: plus.device.imei, //设备标识
                 p: plus.os.name === "Android" ? "a" : "i", //平台类型，i表示iOS平台，a表示Android平台。
@@ -75,7 +74,7 @@
                 os: plus.os.version,
                 net: "" + plus.networkinfo.getCurrentType()
             }
-            this.sendDate = Object.assign(deviceInfo, this.sendDate);
+            this.sendDate = Object.assign(deviceInfo, this.sendDate); */
         },
         methods: {
             close(e){
@@ -117,8 +116,9 @@
                 })
                 uni.uploadFile({
                     url: "https://service.dcloud.net.cn/feedback",
-                    files: imgs,
-                    formData: this.sendDate,
+                    filePath: "_doc/uniapp_temp_1548756772133/compressed/1548756832849.jpg",
+					name:'image',
+                  //  formData: this.sendDate,
                     success: (res) => {
                         if (res.statusCode === 200) {
                             uni.showToast({
@@ -304,9 +304,10 @@
     .feedback-star.active:after {
     	content: '\e438';
     }
-    .feedback-submit {
-    	background: #007AFF;
+    button.feedback-submit {
+    	background-color: #1bb76e;
     	color: #FFFFFF;
     	margin: 20upx;
     }
+	
 </style>

@@ -22,7 +22,7 @@
             "style" : {
                 "app-plus" : {
                     "titleNView" : {
-                        "type" : "transparent"
+                        "type" : "none"
                     }
                 }
             }
@@ -178,10 +178,7 @@
             "path" : "pages/user/login/login",
             "style" : {}
         },
-        {
-            "path" : "pages/user/reg/reg",
-            "style" : {}
-        },
+        
         {
             "path" : "platforms/app-plus/about/about",
             "style" : {
@@ -194,68 +191,62 @@
                 "navigationBarTitleText" : "关于"
             }
         },
-        {
-            "path" : "pages/publish/pub-book/pub-book",
-            "style" : {}
-        },
-        {
-            "path" : "pages/publish/pub-store/pub-store",
-            "style" : {}
-        },
-        {
-            "path" : "pages/publish/pub-cat/pub-cat",
-            "style" : {}
-        }
+		{
+		    "path" : "pages/maincontent/bookexchange/post",
+		    "style" : {}
+		}
+     
     ],
     "globalStyle" : {
-        "navigationBarTextStyle" : "black",
+        "navigationBarTextStyle" : "white",
         "navigationBarTitleText" : "WHUER",
-        "navigationBarBackgroundColor" : "#F8F8F8",
-        "backgroundColor" : "#F8F8F8"
+        "navigationBarBackgroundColor" : "129d5c",
+        "backgroundColor" : "1a1a1a"
     },
     "tabBar" : {
-        "borderStyle" : "black",
-        "backgroundColor" : "#333",
-        "color" : "#8F8F94",
-        "selectedColor" : "#f33e54",
+        "borderStyle" : "white",
+        "backgroundColor" : "2f3035",
+        "color" : "737a84",
+        "selectedColor" : "white",
         "list" : [
             {
                 "pagePath" : "pages/tabbar/tabbar-1/tabbar-1",
-                "iconPath" : "static/img/tabbar/home.png",
-                "selectedIconPath" : "static/img/tabbar/homeactive.png",
+                "iconPath" : "static/tab/home-g.png",
+                "selectedIconPath" : "static/tab/home-w.png",
                 "text" : "首页"
             },
             {
                 "pagePath" : "pages/tabbar/tabbar-2/list1/list1",
-                "iconPath" : "static/img/tabbar/guanzhu.png",
-                "selectedIconPath" : "static/img/tabbar/guanzhuactive.png",
+                "iconPath" : "static/tab/news-g.png",
+                "selectedIconPath" : "static/tab/news-w.png",
                 "text" : "咨讯"
             },
             //#ifdef MP-WEIXIN
             {
                 "pagePath" : "pages/tabbar/tabbar-3/tabbar-3",
-                "iconPath" : "static/img/tabbar/add.png",
-                "selectedIconPath" : "static/img/tabbar/addactive.png",
+                "iconPath" : "static/tab/+-g.png",
+                "selectedIconPath" : "static/tab/+w.png",
                 "text" : "发布"
             },
             //#endif
             //#ifndef MP-WEIXIN
             {
                 "pagePath" : "pages/tabbar/tabbar-3/tabbar-3",
-                "iconPath" : "static/img/tabbar/add.png",
-                "selectedIconPath" : "static/img/tabbar/addactive.png"
+                 "iconPath" : "static/tab/+-g.png",
+                "selectedIconPath" : "static/tab/+w.png",
+				 "text" : "发布"
             },
             //#endif
             {
                 "pagePath" : "pages/tabbar/tabbar-4/tabbar-4",
-                "iconPath" : "static/img/tabbar/news.png",
-                "selectedIconPath" : "static/img/tabbar/newsactive.png",
+                "iconPath" : "static/tab/info-g.png",
+                "selectedIconPath" : "static/tab/info-w.png",
                 "text" : "通知"
             },
             {
                 "pagePath" : "pages/tabbar/tabbar-5/center/center",
-                "iconPath" : "static/img/tabbar/me.png",
-                "selectedIconPath" : "static/img/tabbar/meactive.png",
+                "iconPath" : "static/tab/ming-g.png",
+                "selectedIconPath" : "static/tab/mine-w.png",
                 "text" : "我"
             }
         ]

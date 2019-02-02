@@ -1495,7 +1495,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 var _default2 =
 {
   props: {
@@ -2024,6 +2023,7 @@ module.exports = {
 
 module.exports = {
   "tab-bar-item": {
+    "backgroundColor": "#1bb76e",
     "width": "150",
     "height": "100",
     "flexDirection": "column",
@@ -2034,10 +2034,10 @@ module.exports = {
     "height": "100",
     "lineHeight": "100",
     "fontSize": "30",
-    "color": "#555555"
+    "color": "#9dffd0"
   },
   "active": {
-    "color": "#007AFF"
+    "color": "#FFFFFF"
   },
   "loadmore": {
     "height": "70",
@@ -2107,8 +2107,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('text', {
     staticClass: ["info-text"]
   }, [_vm._v(_vm._s(_vm.data.source))]), _c('text', {
-    staticClass: ["info-text"]
-  }, [_vm._v(_vm._s(_vm.data.comment_count) + "条评论")]), _c('text', {
     staticClass: ["info-text"]
   }, [_vm._v(_vm._s(_vm.data.datetime))])]), _c('div', {
     staticClass: ["max-close-view"],
