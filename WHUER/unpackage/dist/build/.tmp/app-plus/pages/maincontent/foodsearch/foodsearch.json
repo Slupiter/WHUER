@@ -1,0 +1,32 @@
+{
+  "navigationBarTitleText": "详情",
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "titleText": "",
+    "tags": [
+      {
+        "tag": "img",
+        "src": "./static/img/homeHL.png",
+        "position": {
+          "left": "auto",
+          "top": "auto",
+          "width": "26px",
+          "height": "26px"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "text": "",
+        "fontSrc": "/static/uni.ttf",
+        "fontSize": "22px"
+      },
+      {
+        "text": "评分",
+        "fontSize": "14",
+        "select": true,
+        "width": "auto"
+      }
+    ]
+  }
+}

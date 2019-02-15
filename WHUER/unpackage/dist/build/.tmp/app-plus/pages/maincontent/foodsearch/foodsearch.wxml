@@ -1,0 +1,2 @@
+<import src="./foodsearch.vue.wxml" />
+    <template is="03f382fc" data="{{ ...$root['0'], $root }}"/>
