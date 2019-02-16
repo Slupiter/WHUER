@@ -14,7 +14,8 @@ const store = new Vuex.Store({
 		//sign:'',
 		//nameplate:'',
 		header:{},
-		data:{}
+		data:{},
+		notice:{}
     },
     mutations: {	
 		//获取验证uid和token
@@ -80,6 +81,22 @@ const store = new Vuex.Store({
 				complete: () => {}
 			});
 			},
+		getNotice(state){
+			uni.request({
+				url: 'https://api.thinker.ink/v1/notices/',
+				method: 'GET',
+				header: state.header,
+				success: res => {
+					console.log('通知如下');
+					console.log(res);
+					state.notice=res.data;
+	
+					
+				},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
 			//退出登录,清除数据
         logout(state) {
 			state.token = '';

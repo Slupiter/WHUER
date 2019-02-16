@@ -145,11 +145,16 @@
   },
   methods: {
     getw: function getw() {var _this = this;
+      uni.showLoading({
+        title: '正在获取数据',
+        mask: false });
+
       uni.request({
         url: 'https://api.thinker.ink/v1/weather/?city=武汉',
         method: 'GET',
         data: {},
         success: function success(res) {
+          uni.hideLoading();
           console.log(res.data.data);
           _this.w = res.data.data;
 

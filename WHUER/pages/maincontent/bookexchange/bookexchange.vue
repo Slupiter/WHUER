@@ -9,10 +9,10 @@
 			
 			
 		</view>
-		<view class="list-cell" hover-class="uni-list-cell-hover" v-for="(data,key) in listData" :key="key" @click="bindClick" :data-bname=data.name :data-bowner=data.nickname 
-		:data-bid=data.bid>
+		<view class="list-cell" hover-class="uni-list-cell-hover" v-for="(data,key) in listData" :key="key"  >
 		    <view class="media-list" >
-		        <view class="media-image-left">
+		        <view class="media-image-left" @click="bindClick" :data-bname=data.name :data-bowner=data.nickname 
+		:data-bid=data.bid>
 		            
 					  <text class="media-title media-title2 name" @tap="gouser">{{data.nickname}}</text>
 					  <text class="media-title media-title2">{{data.name}}</text>
@@ -23,7 +23,8 @@
 		            </view>
 		        </view>
 		        <view class="media-foot">
-		            <view class="media-info">
+		            <view class="media-info" @click="bindClick" :data-bname=data.name :data-bowner=data.nickname 
+		:data-bid=data.bid>
 		                <text class="info-text">{{data.level}}</text>
 						 <text class="info-text">{{data.language}}</text>
 						  <text class="info-text">{{data.country}}</text>
@@ -153,7 +154,7 @@
 				var bid = e.mp.currentTarget.dataset.bid;
 				if (this.isLogin) {
 				uni.navigateTo({
-					url: './post?bname='+bname+'&bowner='+bowner+'bid='+bid,
+					url: './post?bname='+bname+'&bowner='+bowner+'&bid='+bid,
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
@@ -241,14 +242,16 @@
 				}
 				
 				console.log(url);
-				uni.showToast({
-					icon:'loading'
+				uni.showLoading({
+					title: '正在获取数据',
+					mask: false
 				});
 				uni.request({
 					url: url,
 					method: 'GET',
 					data: this.searchData,
 					success: res => {
+						uni.hideLoading();
 						console.log(res.data.count);
 						if (res.data.count==0){
 							uni.showToast({
@@ -277,7 +280,7 @@
 					complete: () => {}
 				});
 				this.getting=false;
-				//uni.hideLoading();
+				
 				this.searchData={};
 			},
 			
@@ -285,10 +288,7 @@
 					this.reLoad = true;
 					this.searchData.search = e.detail.value;
 			        console.log(this.searchData);
-				uni.showToast({
-					icon:'loading',
-					title: '搜索'
-				});
+				
 				this.getList();
 				
 			}

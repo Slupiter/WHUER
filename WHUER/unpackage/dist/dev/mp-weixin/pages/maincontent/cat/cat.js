@@ -175,14 +175,16 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       }
 
       console.log(url);
-      uni.showToast({
-        icon: 'loading' });
+      uni.showLoading({
+        title: '正在获取数据',
+        mask: false });
 
       uni.request({
         url: url,
         method: 'GET',
         data: this.searchData,
         success: function success(res) {
+          uni.hideLoading();
           console.log(res.data.count);
           if (res.data.count == 0) {
             uni.showToast({
@@ -211,7 +213,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
         complete: function complete() {} });
 
       this.getting = false;
-      //uni.hideLoading();
+
       this.searchData = {};
     },
 
@@ -219,9 +221,6 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       this.reLoad = true;
       this.searchData.search = e.detail.value;
       console.log(this.searchData);
-      uni.showToast({
-        icon: 'loading',
-        title: '搜索' });
 
       this.getList();
 

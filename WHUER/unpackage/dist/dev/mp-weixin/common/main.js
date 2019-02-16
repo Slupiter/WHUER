@@ -400,7 +400,8 @@ var store = new _vuex.default.Store({
     //sign:'',
     //nameplate:'',
     header: {},
-    data: {} },
+    data: {},
+    notice: {} },
 
   mutations: {
     //获取验证uid和token
@@ -460,6 +461,22 @@ var store = new _vuex.default.Store({
           state.data = res.data.data;
           state.isLogin = true;
           console.log(state.data);
+
+        },
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    getNotice: function getNotice(state) {
+      uni.request({
+        url: 'https://api.thinker.ink/v1/notices/',
+        method: 'GET',
+        header: state.header,
+        success: function success(res) {
+          console.log('通知如下');
+          console.log(res);
+          state.notice = res.data;
+
 
         },
         fail: function fail() {},

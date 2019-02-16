@@ -183,14 +183,16 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       }
 
       console.log(url);
-      uni.showToast({
-        icon: 'loading' });
+      uni.showLoading({
+        title: '正在获取数据',
+        mask: false });
 
       uni.request({
         url: url,
         method: 'GET',
         data: this.searchData,
         success: function success(res) {
+          uni.hideLoading();
           console.log(res.data.count);
           if (res.data.count == 0) {
             uni.showToast({
@@ -227,9 +229,6 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       this.reLoad = true;
       this.searchData.search = e.detail.value;
       console.log(this.searchData);
-      uni.showToast({
-        icon: 'loading',
-        title: '搜索' });
 
       this.getList();
 
@@ -338,46 +337,58 @@ var render = function() {
           {
             key: key,
             staticClass: "list-cell",
-            attrs: {
-              "hover-class": "uni-list-cell-hover",
-              eventid: "03f382fc-3-" + key
-            },
-            on: { click: _vm.bindClick }
+            attrs: { "hover-class": "uni-list-cell-hover" }
           },
           [
             _c("view", { staticClass: "media-list" }, [
-              _c("view", { staticClass: "media-image-left" }, [
-                _c(
-                  "text",
-                  {
-                    staticClass: "media-title media-title2 name",
-                    attrs: { eventid: "03f382fc-1-" + key },
-                    on: { tap: _vm.gouser }
-                  },
-                  [_vm._v(_vm._s(data.name))]
-                ),
-                _vm._m(0, true)
-              ]),
+              _c(
+                "view",
+                {
+                  staticClass: "media-image-left",
+                  attrs: { eventid: "03f382fc-2-" + key },
+                  on: { click: _vm.bindClick }
+                },
+                [
+                  _c(
+                    "text",
+                    {
+                      staticClass: "media-title media-title2 name",
+                      attrs: { eventid: "03f382fc-1-" + key },
+                      on: { tap: _vm.gouser }
+                    },
+                    [_vm._v(_vm._s(data.name))]
+                  ),
+                  _vm._m(0, true)
+                ]
+              ),
               _c("view", { staticClass: "media-foot" }, [
-                _c("view", { staticClass: "media-info" }, [
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.level))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.location))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v("介绍: " + _vm._s(data.introduce))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.comment_num) + "条评论")
-                  ])
-                ]),
+                _c(
+                  "view",
+                  {
+                    staticClass: "media-info",
+                    attrs: { eventid: "03f382fc-3-" + key },
+                    on: { click: _vm.bindClick }
+                  },
+                  [
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.level))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.location))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v("介绍: " + _vm._s(data.introduce))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.comment_num) + "条评论")
+                    ])
+                  ]
+                ),
                 _c(
                   "view",
                   {
                     staticClass: "max-close-view",
-                    attrs: { eventid: "03f382fc-2-" + key },
+                    attrs: { eventid: "03f382fc-4-" + key },
                     on: {
                       click: function($event) {
                         _vm.dislike(key)
@@ -397,7 +408,7 @@ var render = function() {
           attrs: {
             visible: _vm.rightDrawerVisible,
             mode: "right",
-            eventid: "03f382fc-6",
+            eventid: "03f382fc-7",
             mpcomid: "03f382fc-2"
           },
           on: { close: _vm.closeRightDrawer }
@@ -410,7 +421,7 @@ var render = function() {
               _c(
                 "form",
                 {
-                  attrs: { eventid: "03f382fc-5" },
+                  attrs: { eventid: "03f382fc-6" },
                   on: { submit: _vm.formSubmit, reset: _vm.formReset }
                 },
                 [
@@ -490,7 +501,7 @@ var render = function() {
                             size: "mini",
                             formType: "submit",
                             type: "primary",
-                            eventid: "03f382fc-4"
+                            eventid: "03f382fc-5"
                           },
                           on: { tap: _vm.closeRightDrawer }
                         },

@@ -57,7 +57,7 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../../components
   (0, _vuex.mapState)(['forcedLogin', 'token', 'username', 'data'])),
 
   methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['login', 'getuserinfo', 'getHeader']), {
+  (0, _vuex.mapMutations)(['login', 'getuserinfo', 'getHeader', 'getNotice']), {
 
     initPosition: function initPosition() {
       /**
@@ -90,6 +90,10 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../../components
       //  password1: this.password
       // };
       console.log('已输入' + this.account + this.password);
+      uni.showLoading({
+        title: '正在登录',
+        mask: false });
+
       //与服务器进行验证
       uni.request({
         url: 'https://api.thinker.ink/v1/users/login/',
@@ -102,15 +106,23 @@ var _mInput = _interopRequireDefault(__webpack_require__(/*! ../../../components
           password: this.password },
 
         success: function success(res) {
+
           console.log('成功返回的信息-------------');
           console.log(res.data.data);
           _this.login(res);
+          uni.hideLoading();
           if (_this.token) {
 
             //getuserinfo();
+            uni.showLoading({
+              title: '正在获取信息',
+              mask: false });
+
             console.log(_this.token);
             _this.getHeader();
             _this.getuserinfo();
+            _this.getNotice();
+            uni.hideLoading();
             uni.navigateBack();
           } else {
             console.log("login失败");

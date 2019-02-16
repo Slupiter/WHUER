@@ -204,24 +204,27 @@
 						complete: () => {}
 					});
 			//图片上传代码测试
-            /*    console.log(JSON.stringify(this.imageList));
+                console.log(JSON.stringify(this.imageList));
                 let imgs = this.imageList.map((value, index) => {
                     return {
                         //name: "image" + index,
-                          name: "image" + index,
+                          name: "image1" ,
                         uri: value
                     }
                 })
 				console.log(JSON.stringify(imgs));
 				uni.uploadFile({
-				    url: "https://api.thinker.ink/v1/uploadImage/",
-				   // url: "https://service.dcloud.net.cn/feedback",
-				    files: imgs,//this.imageList[0],
+				   url: "https://api.thinker.ink/v1/uploadImage/",
+				    // url: "https://service.dcloud.net.cn/feedback",
+				    filePath:this.imageList[0],
+					name:'image',
 					header:this.header,
 				    //formData: this.sendDate,
 				    success: (res) => {
+						console.log(JSON.stringify(res));
+						console.log(res);
 				        if (res.statusCode === 200) {
-				            uni.showToast({
+				            uni.showToast({ 
 				                title: "反馈成功!"
 				            });
 							console.log(JSON.stringify(res));
@@ -233,15 +236,15 @@
 				            }
 				        }
 				    },
-				    fail: (res) => {
-				        uni.showToast({
-				            title: "失败",
-				            icon:"none"
-				        });
-				        console.log(res)
-						console.log(JSON.stringify(res));
-				    }
-				}); */
+                    fail: (res) => {
+                        uni.showToast({
+                            title: "失败",
+                            icon:"none"
+                        });
+                        console.log(JSON.stringify(res));
+                    }
+				    
+				}); 
                /* uni.uploadFile({
                     url: "https://service.dcloud.net.cn/feedback",
                     files: imgs,

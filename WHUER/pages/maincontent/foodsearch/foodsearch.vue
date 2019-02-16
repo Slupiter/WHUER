@@ -10,9 +10,9 @@
 			
 		</view>
 		
-		<view class="list-cell" hover-class="uni-list-cell-hover" v-for="(data,key) in listData" :key="key" @click="bindClick" >
+		<view class="list-cell" hover-class="uni-list-cell-hover" v-for="(data,key) in listData" :key="key"  >
 		    <view class="media-list" >
-		        <view class="media-image-left">
+		        <view class="media-image-left" @click="bindClick">
 		            
 					  <text class="media-title media-title2 name" @tap="gouser">{{data.name}}</text>
 					  
@@ -23,7 +23,7 @@
 		            </view>
 		        </view>
 		        <view class="media-foot">
-		            <view class="media-info">
+		            <view class="media-info" @click="bindClick">
 		                <text class="info-text">{{data.level}}</text>
 						 <text class="info-text">{{data.location}}</text>
 						  <text class="info-text">介绍: {{data.introduce}}</text>
@@ -173,14 +173,16 @@
 				}
 				
 				console.log(url);
-				uni.showToast({
-					icon:'loading'
+				uni.showLoading({
+					title: '正在获取数据',
+					mask: false
 				});
 				uni.request({
 					url: url,
 					method: 'GET',
 					data: this.searchData,
 					success: res => {
+						uni.hideLoading();
 						console.log(res.data.count);
 						if (res.data.count==0){
 							uni.showToast({
@@ -217,10 +219,7 @@
 					this.reLoad = true;
 					this.searchData.search = e.detail.value;
 			        console.log(this.searchData);
-				uni.showToast({
-					icon:'loading',
-					title: '搜索'
-				});
+				
 				this.getList();
 				
 			}

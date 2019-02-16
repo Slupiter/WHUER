@@ -8,7 +8,7 @@
             <text>用户用于交换的图书名称:</text>
         </view>
         <view class="feedback-body">
-            <input class="feedback-input" v-model="sendDate.frombook" placeholder="必填" />
+            <input class="feedback-input" v-model="frombook" placeholder="必填" />
         </view>
 		
       
@@ -36,9 +36,11 @@
         data() {
             return {
                 tobook:'',
+				frombook: "",
                 sendDate: {
+                   from_bid:'',
                    
-                   frombook: ""
+				   to_bid:''
                 }
             }
         },
@@ -46,8 +48,10 @@
 			
 			onLoad:function(e){
 					console.log("e"+e.bname+e);
+					console.log(e);
 					this.tobook=e.bname;
-					this.sendDate.receiver=e.bowner;
+					//this.sendDate.receiver=e.bowner;
+					this.sendDate.to_bid=e.bid;
 				},
         
         
@@ -57,26 +61,38 @@
         methods: {
 			post() {
 				console.log("进入提交");
-				uni.showLoading({
-					title: '提交中',
-					mask: false
-				});
-				this.sendDate.tobook=this.tobook;
-				this.sendDate.sender=this.data.nickname;
+				
+				//this.sendDate.tobook=this.tobook;
+				//this.sendDate.sender=this.data.nickname;
 				
 					console.log(this.sendDate);
-				 if(this.sendDate.frombook ==''){
+				 if(this.frombook ==''){
 					 uni.showToast({
 					 	title: '请补全信息',
 					 	mask: false,
 					 	duration: 1500
 					 });
 					 return;
-				 }else{
+				 }else {
+					 uni.showLoading({
+					 	title: '提交中',
+					 	mask: false
+					 });
+					 uni.request({
+					 	url: 'http://api.thinker.ink/v1/books/?search='+this.frombook,
+					 	method: 'GET',
+					 	
+					 	success: res => {
+							console.log(res);
+							//console.log('from_bid='+res.data.data[0].bid);
+                   if (res.data.count!=0) {  
+					   this.sendDate.from_bid=res.data.data[0].bid;
+					   console.log('sendDate终');
+					   console.log(this.sendDate);
 					 uni.request({
 					 	url: 'https://api.thinker.ink/v1/books/applications/publish/',
 					 	method: 'POST',
-					 	
+					 	data:this.sendDate,
 						header:this.header,
 					 	success: res => {
 							console.log(res);
@@ -96,7 +112,19 @@
 							},
 						
 					 });
-			
+				 }	else{
+					 uni.showToast({
+					 	title: '您未拥有此书',
+					 	mask: false,
+					 	duration: 1500
+					 });
+				 }						
+							
+						},
+					 	fail: () => {},
+					 	complete: () => {}
+					 });
+					 
 				 }
 				
 				}

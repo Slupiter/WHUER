@@ -46,9 +46,11 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
   data: function data() {
     return {
       tobook: '',
+      frombook: "",
       sendDate: {
+        from_bid: '',
 
-        frombook: "" } };
+        to_bid: '' } };
 
 
   },
@@ -56,8 +58,10 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 
   onLoad: function onLoad(e) {
     console.log("e" + e.bname + e);
+    console.log(e);
     this.tobook = e.bname;
-    this.sendDate.receiver = e.bowner;
+    //this.sendDate.receiver=e.bowner;
+    this.sendDate.to_bid = e.bid;
   },
 
 
@@ -65,17 +69,14 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
   (0, _vuex.mapState)(['header', 'data'])),
 
   methods: {
-    post: function post() {
+    post: function post() {var _this = this;
       console.log("进入提交");
-      uni.showLoading({
-        title: '提交中',
-        mask: false });
 
-      this.sendDate.tobook = this.tobook;
-      this.sendDate.sender = this.data.nickname;
+      //this.sendDate.tobook=this.tobook;
+      //this.sendDate.sender=this.data.nickname;
 
       console.log(this.sendDate);
-      if (this.sendDate.frombook == '') {
+      if (this.frombook == '') {
         uni.showToast({
           title: '请补全信息',
           mask: false,
@@ -83,28 +84,55 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 
         return;
       } else {
-        uni.request({
-          url: 'https://api.thinker.ink/v1/books/applications/publish/',
-          method: 'POST',
+        uni.showLoading({
+          title: '提交中',
+          mask: false });
 
-          header: this.header,
+        uni.request({
+          url: 'http://api.thinker.ink/v1/books/?search=' + this.frombook,
+          method: 'GET',
+
           success: function success(res) {
             console.log(res);
-            uni.hideLoading();
-            if (res.statusCode === 201) {
-              uni.showToast({
-                title: "发布成功!" });
+            //console.log('from_bid='+res.data.data[0].bid);
+            if (res.data.count != 0) {
+              _this.sendDate.from_bid = res.data.data[0].bid;
+              console.log('sendDate终');
+              console.log(_this.sendDate);
+              uni.request({
+                url: 'https://api.thinker.ink/v1/books/applications/publish/',
+                method: 'POST',
+                data: _this.sendDate,
+                header: _this.header,
+                success: function success(res) {
+                  console.log(res);
+                  uni.hideLoading();
+                  if (res.statusCode === 201) {
+                    uni.showToast({
+                      title: "发布成功!" });
+
+
+                  } else {
+                    uni.showToast({
+                      title: "发布失败!" });
+
+                  }
+
+                  console.log(res);
+                } });
 
 
             } else {
               uni.showToast({
-                title: "发布失败!" });
+                title: '您未拥有此书',
+                mask: false,
+                duration: 1500 });
 
             }
 
-            console.log(res);
-          } });
-
+          },
+          fail: function fail() {},
+          complete: function complete() {} });
 
 
       }
@@ -151,19 +179,19 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.sendDate.frombook,
-            expression: "sendDate.frombook"
+            value: _vm.frombook,
+            expression: "frombook"
           }
         ],
         staticClass: "feedback-input",
         attrs: { placeholder: "必填", eventid: "145ef090-0" },
-        domProps: { value: _vm.sendDate.frombook },
+        domProps: { value: _vm.frombook },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.sendDate.frombook = $event.target.value
+            _vm.frombook = $event.target.value
           }
         }
       })

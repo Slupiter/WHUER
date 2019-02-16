@@ -47,7 +47,7 @@
 			...mapState(['forcedLogin','token','username','data'])
 			},
         methods: {
-            ...mapMutations(['login','getuserinfo','getHeader']),
+            ...mapMutations(['login','getuserinfo','getHeader','getNotice']),
             
             initPosition() {
                 /**
@@ -80,6 +80,10 @@
                   //  password1: this.password
                // };
 				console.log('已输入'+this.account+this.password);
+				uni.showLoading({
+					title: '正在登录',
+					mask: false
+				});
 				//与服务器进行验证
 				uni.request({
 					url: 'https://api.thinker.ink/v1/users/login/',
@@ -92,15 +96,23 @@
 						password: this.password
 					},
 					success: res => {
+						
 						console.log('成功返回的信息-------------');
 						console.log(res.data.data);
 						this.login(res);
+						uni.hideLoading();
 						if(this.token) {
 							
 						    //getuserinfo();
+							uni.showLoading({
+								title: '正在获取信息',
+								mask: false
+							});
 							console.log(this.token);
 							this.getHeader();
 							this.getuserinfo();
+							this.getNotice();
+							uni.hideLoading();
 							uni.navigateBack();
 						}else{
 							console.log("login失败");

@@ -129,6 +129,7 @@
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
@@ -163,7 +164,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       var bid = e.mp.currentTarget.dataset.bid;
       if (this.isLogin) {
         uni.navigateTo({
-          url: './post?bname=' + bname + '&bowner=' + bowner + 'bid=' + bid,
+          url: './post?bname=' + bname + '&bowner=' + bowner + '&bid=' + bid,
           success: function success(res) {},
           fail: function fail() {},
           complete: function complete() {} });
@@ -251,14 +252,16 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       }
 
       console.log(url);
-      uni.showToast({
-        icon: 'loading' });
+      uni.showLoading({
+        title: '正在获取数据',
+        mask: false });
 
       uni.request({
         url: url,
         method: 'GET',
         data: this.searchData,
         success: function success(res) {
+          uni.hideLoading();
           console.log(res.data.count);
           if (res.data.count == 0) {
             uni.showToast({
@@ -287,7 +290,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
         complete: function complete() {} });
 
       this.getting = false;
-      //uni.hideLoading();
+
       this.searchData = {};
     },
 
@@ -295,9 +298,6 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
       this.reLoad = true;
       this.searchData.search = e.detail.value;
       console.log(this.searchData);
-      uni.showToast({
-        icon: 'loading',
-        title: '搜索' });
 
       this.getList();
 
@@ -410,58 +410,77 @@ var render = function() {
           {
             key: key,
             staticClass: "list-cell",
-            attrs: {
-              "hover-class": "uni-list-cell-hover",
-              "data-bname": data.name,
-              "data-bowner": data.nickname,
-              "data-bid": data.bid,
-              eventid: "684237fc-3-" + key
-            },
-            on: { click: _vm.bindClick }
+            attrs: { "hover-class": "uni-list-cell-hover" }
           },
           [
             _c("view", { staticClass: "media-list" }, [
-              _c("view", { staticClass: "media-image-left" }, [
-                _c(
-                  "text",
-                  {
-                    staticClass: "media-title media-title2 name",
-                    attrs: { eventid: "684237fc-1-" + key },
-                    on: { tap: _vm.gouser }
+              _c(
+                "view",
+                {
+                  staticClass: "media-image-left",
+                  attrs: {
+                    "data-bname": data.name,
+                    "data-bowner": data.nickname,
+                    "data-bid": data.bid,
+                    eventid: "684237fc-2-" + key
                   },
-                  [_vm._v(_vm._s(data.nickname))]
-                ),
-                _c("text", { staticClass: "media-title media-title2" }, [
-                  _vm._v(_vm._s(data.name))
-                ]),
-                _vm._m(0, true)
-              ]),
+                  on: { click: _vm.bindClick }
+                },
+                [
+                  _c(
+                    "text",
+                    {
+                      staticClass: "media-title media-title2 name",
+                      attrs: { eventid: "684237fc-1-" + key },
+                      on: { tap: _vm.gouser }
+                    },
+                    [_vm._v(_vm._s(data.nickname))]
+                  ),
+                  _c("text", { staticClass: "media-title media-title2" }, [
+                    _vm._v(_vm._s(data.name))
+                  ]),
+                  _vm._m(0, true)
+                ]
+              ),
               _c("view", { staticClass: "media-foot" }, [
-                _c("view", { staticClass: "media-info" }, [
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.level))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.language))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.country))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.types))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.place))
-                  ]),
-                  _c("text", { staticClass: "info-text" }, [
-                    _vm._v(_vm._s(data.status ? "已交换" : "未交换"))
-                  ])
-                ]),
+                _c(
+                  "view",
+                  {
+                    staticClass: "media-info",
+                    attrs: {
+                      "data-bname": data.name,
+                      "data-bowner": data.nickname,
+                      "data-bid": data.bid,
+                      eventid: "684237fc-3-" + key
+                    },
+                    on: { click: _vm.bindClick }
+                  },
+                  [
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.level))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.language))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.country))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.types))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.place))
+                    ]),
+                    _c("text", { staticClass: "info-text" }, [
+                      _vm._v(_vm._s(data.status ? "已交换" : "未交换"))
+                    ])
+                  ]
+                ),
                 _c(
                   "view",
                   {
                     staticClass: "max-close-view",
-                    attrs: { eventid: "684237fc-2-" + key },
+                    attrs: { eventid: "684237fc-4-" + key },
                     on: {
                       click: function($event) {
                         _vm.dislike(key)
@@ -481,7 +500,7 @@ var render = function() {
           attrs: {
             visible: _vm.rightDrawerVisible,
             mode: "right",
-            eventid: "684237fc-6",
+            eventid: "684237fc-7",
             mpcomid: "684237fc-6"
           },
           on: { close: _vm.closeRightDrawer }
@@ -494,7 +513,7 @@ var render = function() {
               _c(
                 "form",
                 {
-                  attrs: { eventid: "684237fc-5" },
+                  attrs: { eventid: "684237fc-6" },
                   on: { submit: _vm.formSubmit, reset: _vm.formReset }
                 },
                 [
@@ -714,7 +733,7 @@ var render = function() {
                             size: "mini",
                             formType: "submit",
                             type: "primary",
-                            eventid: "684237fc-4"
+                            eventid: "684237fc-5"
                           },
                           on: { tap: _vm.closeRightDrawer }
                         },

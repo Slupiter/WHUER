@@ -108,7 +108,7 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
       imageList: [],
       sendDate: {
         //  score: 0,
-        content: "",
+        introduce: "",
         name: "" } };
 
 
@@ -140,9 +140,9 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 
       var formData = e.detail.value;
       formData.name = this.sendDate.name;
-      formData.content = this.sendDate.content;
+      formData.introduce = this.sendDate.content;
       console.log(formData);
-      if (formData.name == '' || formData.content == '' || formData.location == '') {
+      if (formData.name == '' || formData.introduce == '' || formData.location == '') {
         uni.showToast({
           title: '请补全信息',
           mask: false,
@@ -203,7 +203,7 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
         urls: this.imageList });
 
     },
-    send: function send() {//发送反馈
+    send: function send() {var _this2 = this; //发送反馈
       console.log(JSON.stringify(this.sendDate));
       uni.request({
         url: 'https://api.thinker.ink/v1/books/publish/',
@@ -214,69 +214,72 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
         complete: function complete() {} });
 
       //图片上传代码测试
-      /*    console.log(JSON.stringify(this.imageList));
-          let imgs = this.imageList.map((value, index) => {
-              return {
-                  //name: "image" + index,
-                    name: "image" + index,
-                  uri: value
-              }
-          })
+      console.log(JSON.stringify(this.imageList));
+      var imgs = this.imageList.map(function (value, index) {
+        return {
+          //name: "image" + index,
+          name: "image1",
+          uri: value };
+
+      });
       console.log(JSON.stringify(imgs));
       uni.uploadFile({
-      url: "https://api.thinker.ink/v1/uploadImage/",
-      // url: "https://service.dcloud.net.cn/feedback",
-      files: imgs,//this.imageList[0],
-      header:this.header,
-      //formData: this.sendDate,
-      success: (res) => {
-      if (res.statusCode === 200) {
-          uni.showToast({
-              title: "反馈成功!"
-          });
-      console.log(JSON.stringify(res));
-          this.imageList = [];
-          this.sendDate = {
+        url: "https://api.thinker.ink/v1/uploadImage/",
+        // url: "https://service.dcloud.net.cn/feedback",
+        filePath: this.imageList[0],
+        name: 'image',
+        header: this.header,
+        //formData: this.sendDate,
+        success: function success(res) {
+          console.log(JSON.stringify(res));
+          console.log(res);
+          if (res.statusCode === 200) {
+            uni.showToast({
+              title: "反馈成功!" });
+
+            console.log(JSON.stringify(res));
+            _this2.imageList = [];
+            _this2.sendDate = {
               score: 0,
               content: "",
-              contact: ""
+              contact: "" };
+
           }
-      }
-      },
-      fail: (res) => {
-      uni.showToast({
-          title: "失败",
-          icon:"none"
-      });
-      console.log(res)
-      console.log(JSON.stringify(res));
-      }
-      }); */
+        },
+        fail: function fail(res) {
+          uni.showToast({
+            title: "失败",
+            icon: "none" });
+
+          console.log(JSON.stringify(res));
+        } });
+
+
       /* uni.uploadFile({
-                  url: "https://service.dcloud.net.cn/feedback",
-                  files: imgs,
-                  formData: this.sendDate,
-                  success: (res) => {
-                      if (res.statusCode === 200) {
-                          uni.showToast({
-                              title: "反馈成功!"
-                          });
-                          this.imageList = [];
-                          this.sendDate = {
-                              score: 0,
-                              content: "",
-                              contact: ""
-                          }
-                      }
-                  },
-                  fail: (res) => {
-                      uni.showToast({
-                          title: "失败",
-                          icon:"none"
-                      });
-                      console.log(res)
-                  }
-              });*/
+                   url: "https://service.dcloud.net.cn/feedback",
+                   files: imgs,
+                   formData: this.sendDate,
+                   success: (res) => {
+                       if (res.statusCode === 200) {
+                           uni.showToast({
+                               title: "反馈成功!"
+                           });
+                           this.imageList = [];
+                           this.sendDate = {
+                               score: 0,
+                               content: "",
+                               contact: ""
+                           }
+                       }
+                   },
+                   fail: (res) => {
+                       uni.showToast({
+                           title: "失败",
+                           icon:"none"
+                       });
+                       console.log(res)
+                   }
+               });*/
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
