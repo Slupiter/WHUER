@@ -250,7 +250,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
           return;
         }
       }
-
+      console.log('路径是');
       console.log(url);
       uni.showLoading({
         title: '正在获取数据',
@@ -262,6 +262,9 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
         data: this.searchData,
         success: function success(res) {
           uni.hideLoading();
+          _this2.getting = false;
+
+          _this2.searchData = {};
           console.log(res.data.count);
           if (res.data.count == 0) {
             uni.showToast({
@@ -286,12 +289,16 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
           console.log(_this2.nextPage);
           console.log(_this2.listData[0].images[0]);
         },
-        fail: function fail() {},
+        fail: function fail(res) {
+          _this2.getting = false;
+
+          _this2.searchData = {};
+          uni.hideLoading();
+          console.log(JSON.stringify(res));
+        },
         complete: function complete() {} });
 
-      this.getting = false;
 
-      this.searchData = {};
     },
 
     confirm: function confirm(e) {
@@ -305,15 +312,20 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
 
   onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
     console.log("tab顶部键" + e.index);
+
     switch (e.index) {
       case 2:
         console.log("点了评分");
         this.searchData.ordering = "level";
+        this.reLoad = true;
+        console.log(JSON.stringify(this.searchData));
         this.getList();
         break;
       case 1:
         console.log("点了距离");
         this.searchData.ordering = "place";
+        this.reLoad = true;
+        console.log(JSON.stringify(this.searchData));
         this.getList();
         break;
       case 0:
@@ -327,6 +339,7 @@ var _uniIcon = _interopRequireDefault(__webpack_require__(/*! ../../../component
   onBackPress: function onBackPress() {
     // 返回按钮监听
     if (this.rightDrawerVisible) {
+      this.chosen = '';
       this.rightDrawerVisible = false;
       return true;
     }

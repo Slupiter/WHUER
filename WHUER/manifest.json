@@ -90,5 +90,9 @@
             "urlCheck" : true,
             "es6" : true
         }
+    },
+    "h5" : {
+        "title" : "WHUER",
+        "domain" : "111.230.115.107"
     }
 }

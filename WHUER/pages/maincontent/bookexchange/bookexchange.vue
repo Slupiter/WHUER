@@ -240,7 +240,7 @@
 						return;
 					}
 				}
-				
+				console.log('路径是');
 				console.log(url);
 				uni.showLoading({
 					title: '正在获取数据',
@@ -252,6 +252,9 @@
 					data: this.searchData,
 					success: res => {
 						uni.hideLoading();
+						this.getting=false;
+						
+						this.searchData={};
 						console.log(res.data.count);
 						if (res.data.count==0){
 							uni.showToast({
@@ -276,12 +279,16 @@
 						console.log(this.nextPage);
 						console.log(this.listData[0].images[0]);
 					},
-					fail: () => {},
+					fail: (res) => {
+						this.getting=false;
+						
+						this.searchData={};
+						uni.hideLoading();
+						console.log(JSON.stringify(res));
+					},
 					complete: () => {}
 				});
-				this.getting=false;
 				
-				this.searchData={};
 			},
 			
 			confirm: function (e) {
@@ -295,15 +302,20 @@
 		},
 		onNavigationBarButtonTap(e) {
 			console.log("tab顶部键"+e.index);
+			
 			switch (e.index){
 				case 2:
 					console.log("点了评分");
 					this.searchData.ordering="level";
+					this.reLoad = true;
+					console.log(JSON.stringify(this.searchData));
 					this.getList();
 					break;
 				case 1:
 					console.log("点了距离");
 					this.searchData.ordering="place";
+					this.reLoad = true;
+					console.log(JSON.stringify(this.searchData));
 					this.getList();
 					break;
 				case 0:
@@ -317,6 +329,7 @@
 		onBackPress() {
 			// 返回按钮监听
 			if (this.rightDrawerVisible) {
+				this.chosen = '';
 				this.rightDrawerVisible = false;
 				return true;
 			}

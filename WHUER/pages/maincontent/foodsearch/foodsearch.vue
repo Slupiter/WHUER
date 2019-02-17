@@ -161,7 +161,7 @@
 				if (!this.reLoad){
 					
 					url=this.nextPage; 
-					if(!url){
+					if(url==''){
 						uni.showToast({
 							icon:'none',
 							title: '无更多数据',
@@ -184,6 +184,8 @@
 					success: res => {
 						uni.hideLoading();
 						console.log(res.data.count);
+						this.getting=false;
+						this.searchData={};
 						if (res.data.count==0){
 							uni.showToast({
 								
@@ -207,12 +209,16 @@
 						console.log(this.nextPage);
 					//	console.log(this.listData[0].images[0]);
 					},
-					fail: () => {},
+					fail: (res) => {
+						this.getting=false;
+						
+						this.searchData={};
+						uni.hideLoading();
+						console.log(JSON.stringify(res));
+					},
 					complete: () => {}
 				});
-				this.getting=false;
-				//uni.hideLoading();
-				this.searchData={};
+				
 			},
 			
 			confirm: function (e) {
@@ -231,6 +237,8 @@
 				case 1:
 					console.log("点了评分");
 					this.searchData.ordering="rating";
+					this.reLoad = true;
+					console.log(JSON.stringify(this.searchData));
 					this.getList();
 					break;
 				case 0:
