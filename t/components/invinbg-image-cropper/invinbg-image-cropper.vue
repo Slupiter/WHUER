@@ -697,8 +697,8 @@
 
     .crop-point {
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: 16px;
+        height: 16px;
         opacity: 0.75;
         background-color: #39f;
         border-radius: 100%;
@@ -706,54 +706,54 @@
     }
 
     .point-lt {
-        top: -4px;
-        left: -4px;
+        top: -8px;
+        left: -8px;
         cursor: nw-resize;
     }
 
     .point-mt {
-        top: -5px;
+        top: -8px;
         left: 50%;
         margin-left: -3px;
         cursor: n-resize;
     }
 
     .point-rt {
-        top: -4px;
-        right: -4px;
+        top: -8px;
+        right: -8px;
         cursor: ne-resize;
     }
 
     .point-ml {
         top: 50%;
-        left: -4px;
+        left: -8px;
         margin-top: -3px;
         cursor: w-resize;
     }
 
     .point-mr {
         top: 50%;
-        right: -4px;
+        right: -8px;
         margin-top: -3px;
         cursor: e-resize;
     }
 
     .point-lb {
-        bottom: -5px;
-        left: -4px;
+        bottom: -8px;
+        left: -8px;
         cursor: sw-resize;
     }
 
     .point-mb {
-        bottom: -5px;
+        bottom: -8px;
         left: 50%;
         margin-left: -3px;
         cursor: s-resize;
     }
 
     .point-rb {
-        bottom: -5px;
-        right: -4px;
+        bottom: -8px;
+        right: -8px;
         cursor: se-resize;
     }
 </style>

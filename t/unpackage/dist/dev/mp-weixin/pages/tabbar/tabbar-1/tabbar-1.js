@@ -137,52 +137,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var ImageCropper = function ImageCropper() {__webpack_require__.e(/*! require.ensure | components/invinbg-image-cropper/invinbg-image-cropper */ "components/invinbg-image-cropper/invinbg-image-cropper").then((function () {return resolve(__webpack_require__(/*! @/components/invinbg-image-cropper/invinbg-image-cropper.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
-      avatar: '/static/logo.jpg' };
+      avatar: '/static/logo.jpg',
+      tempFilePath: '' };
 
   },
-  created: function created() {var _this = this;
-    uni.$on('uAvatarCropper', function (path) {
-      _this.avatar = path;
-      console.log('预览路径');
-      console.log('path');
-      _this.$u.route({
-        url: '/pages/result/result',
-        params: {
-          src: path } });
-
-
-      // 可以在此上传到服务端
-
-    });
-  },
+  components: { ImageCropper: ImageCropper },
   onShareAppMessage: function onShareAppMessage(res) {
     return {
       title: '说文解字',
@@ -198,17 +186,14 @@ var _default =
 
   },
   methods: {
-    chooseAvatar: function chooseAvatar() {
-      this.$u.route({
-        url: '/uview-ui/components/u-avatar-cropper/u-avatar-cropper',
-        params: {
-          // 输出图片宽度，高等于宽，单位px
-          destWidth: 1000,
-          // 裁剪框宽度，高等于宽，单位px
-          rectWidth: 300,
-          // 输出的图片类型，如果'png'类型发现裁剪的图片太大，改成"jpg"即可
-          fileType: 'jpg' } });
-
+    chooseAvatar: function chooseAvatar() {var _this = this;
+      uni.chooseImage({
+        count: 1, //默认9
+        sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['camera', 'album'], //从相册选择
+        success: function success(res) {
+          _this.tempFilePath = res.tempFilePaths.shift();
+        } });
 
     },
 
@@ -223,6 +208,16 @@ var _default =
       uni.navigateTo({
         url: '../../mine/about' });
 
+    },
+    confirm: function confirm(e) {
+      //this.tempFilePath = '';
+      this.avatar = e.detail.tempFilePath;
+      uni.navigateTo({
+        url: '../../result/result?src=' + e.detail.tempFilePath });
+
+    },
+    cancel: function cancel() {
+      console.log('canceled');
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

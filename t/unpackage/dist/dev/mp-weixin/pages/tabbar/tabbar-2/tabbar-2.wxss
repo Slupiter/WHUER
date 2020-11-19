@@ -1,6 +1,7 @@
 
-.image {
-    width: 200px;
-    height: 200px;
+.content {
+	text-align: center;
+	height: 400rpx;
+	margin-top: 200rpx;
 }
 

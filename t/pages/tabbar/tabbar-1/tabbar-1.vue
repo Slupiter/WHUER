@@ -4,8 +4,9 @@
 			<!--<view class="u-demo-title">演示效果</view> -->
 			<view class="u-demo-area">
 				<view class="u-avatar-wrap">
+					
 					<image @tap="preAvatar" class="u-avatar-demo" :src="avatar" mode="aspectFit"></image>
-				</view>
+					<image-cropper :src="tempFilePath" @confirm="confirm" @cancel="cancel"></image-cropper>				</view>
 				<u-button @click="chooseAvatar">选择图片</u-button>
 			</view>
 		</view>
@@ -23,27 +24,14 @@
 </template>
 
 <script>
-	export default {
+		import ImageCropper from "@/components/invinbg-image-cropper/invinbg-image-cropper.vue";	export default {
 		data() {
 			return {
 				avatar: '/static/logo.jpg',
+				tempFilePath: '',
 			}
 		},
-		created() {
-			uni.$on('uAvatarCropper', path => {
-				this.avatar = path;
-				console.log('预览路径');
-				console.log('path');
-				this.$u.route({
-					url: '/pages/result/result',
-					params: {
-						src: path
-					}
-				})
-				// 可以在此上传到服务端
-				
-			})
-		},
+		components: {ImageCropper},
 		onShareAppMessage(res) {
 		  return {
 		    title: '说文解字',
@@ -60,17 +48,14 @@
 		},
 		methods: {
 			chooseAvatar() {
-				this.$u.route({
-					url: '/uview-ui/components/u-avatar-cropper/u-avatar-cropper',
-					params: {
-						// 输出图片宽度，高等于宽，单位px
-						destWidth: 1000,
-						// 裁剪框宽度，高等于宽，单位px
-						rectWidth: 300,
-						// 输出的图片类型，如果'png'类型发现裁剪的图片太大，改成"jpg"即可
-						fileType: 'jpg',
-					}
-				})
+				uni.chooseImage({
+				                count: 1, //默认9
+				                sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+				                sourceType: ['camera','album'], //从相册选择
+				                success: (res) => {
+				                    this.tempFilePath = res.tempFilePaths.shift()
+				                }
+				            });
 			},
 			
 			// 预览图片
@@ -84,7 +69,17 @@
 				uni.navigateTo({
 					url:'../../mine/about'
 				});
-			}
+			},
+			confirm(e) {
+			            //this.tempFilePath = '';
+			            this.avatar = e.detail.tempFilePath;
+						uni.navigateTo({
+							url:'../../result/result?src='+e.detail.tempFilePath
+						});
+			        },
+			cancel() {
+			            console.log('canceled')
+			        }
 		}
 	}
 </script>
