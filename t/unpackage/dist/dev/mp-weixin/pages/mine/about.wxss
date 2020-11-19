@@ -1,0 +1,10 @@
+
+.content {
+	text-align: center;
+	height: 400rpx;
+	margin-top: 200rpx;
+}
+.ima{
+	height: 300rpx;
+}
+

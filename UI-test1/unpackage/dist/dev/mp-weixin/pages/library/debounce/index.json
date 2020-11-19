@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "throttle | debounce-节流防抖",
+  "usingComponents": {
+    "u-subsection": "/uview-ui/components/u-subsection/u-subsection"
+  }
+}

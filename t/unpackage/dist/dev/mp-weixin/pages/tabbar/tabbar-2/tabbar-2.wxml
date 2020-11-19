@@ -1,0 +1,1 @@
+<view><button data-event-opts="{{[['tap',[['upload',['$event']]]]]}}" bindtap="__e">上传</button><image-cropper vue-id="599e624f-1" src="{{tempFilePath}}" data-event-opts="{{[['^confirm',[['confirm']]],['^cancel',[['cancel']]]]}}" bind:confirm="__e" bind:cancel="__e" bind:__l="__l"></image-cropper><image style="width:100%;" src="{{cropFilePath}}" mode="aspectFit"></image></view>

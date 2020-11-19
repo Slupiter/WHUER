@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/tabbar/tabbar-2/tabbar-2",
+    "pages/tabbar/tabbar-4/tabbar-4",
+    "pages/tabbar/tabbar-5/tabbar-5",
+    "uview-ui/components/u-avatar-cropper/u-avatar-cropper",
+    "pages/result/result",
+    "pages/result/test",
+    "pages/mine/about"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "说文解字",
+    "navigationBarBackgroundColor": "#129d5c",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#333",
+    "color": "#8F8F94",
+    "selectedColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/tabbar-1/tabbar-1",
+        "iconPath": "static/img/tabbar/1a.png",
+        "selectedIconPath": "static/img/tabbar/1b.png",
+        "text": "识文字"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-2/tabbar-2",
+        "iconPath": "static/img/tabbar/2a.png",
+        "selectedIconPath": "static/img/tabbar/2b.png",
+        "text": "查文字"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-4/tabbar-4",
+        "iconPath": "static/img/tabbar/3a.png",
+        "selectedIconPath": "static/img/tabbar/3b.png",
+        "text": "语言字典"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-5/tabbar-5",
+        "iconPath": "static/img/tabbar/4a.png",
+        "selectedIconPath": "static/img/tabbar/4b.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap73.json"
+}

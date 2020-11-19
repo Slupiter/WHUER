@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.u-demo.data-v-41326940 {
+  min-height: 200vh;
+}
+.rect-block-1.data-v-41326940 {
+  background-color: #a0cfff;
+  padding: 26rpx 60rpx;
+  color: #ffffff;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  margin: auto;
+}
+.rect-block-2.data-v-41326940 {
+  background-color: #fcbd71;
+  padding: 12rpx 8rpx;
+  width: 60%;
+  color: #ffffff;
+  margin: 30rpx auto;
+}
+

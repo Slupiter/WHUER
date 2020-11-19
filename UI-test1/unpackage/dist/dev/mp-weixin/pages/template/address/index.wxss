@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.item.data-v-680fa4db {
+  padding: 40rpx 20rpx;
+}
+.item .top.data-v-680fa4db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-weight: bold;
+  font-size: 34rpx;
+}
+.item .top .phone.data-v-680fa4db {
+  margin-left: 60rpx;
+}
+.item .top .tag.data-v-680fa4db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-weight: normal;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.item .top .tag text.data-v-680fa4db {
+  display: block;
+  width: 60rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  color: #ffffff;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  margin-left: 30rpx;
+  background-color: #3191fd;
+}
+.item .top .tag .red.data-v-680fa4db {
+  background-color: red;
+}
+.item .bottom.data-v-680fa4db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  color: #999999;
+}
+.addSite.data-v-680fa4db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  width: 600rpx;
+  line-height: 100rpx;
+  position: absolute;
+  bottom: 30rpx;
+  left: 80rpx;
+  background-color: red;
+  border-radius: 60rpx;
+  font-size: 30rpx;
+}
+.addSite .add.data-v-680fa4db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #ffffff;
+}
+.addSite .add .icon.data-v-680fa4db {
+  margin-right: 10rpx;
+}
+

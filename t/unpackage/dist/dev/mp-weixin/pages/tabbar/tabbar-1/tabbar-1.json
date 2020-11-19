@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "识文字",
+  "usingComponents": {
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-tag": "/uview-ui/components/u-tag/u-tag"
+  }
+}
